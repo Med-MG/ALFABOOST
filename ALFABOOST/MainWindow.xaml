@@ -6,7 +6,7 @@
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:local="clr-namespace:ALFABOOST"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="1000" Background="{x:Null}" Foreground="White" WindowStyle="None" AllowsTransparency="True" FontFamily="Montserrat">
+        Title="MainWindow" Height="650" Width="1000" Background="{x:Null}" Foreground="White" WindowStyle="None" AllowsTransparency="True" FontFamily="Montserrat" >
     <Window.Resources>
         <Storyboard x:Key="CloseWindEnter">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="CloseWindow">
@@ -88,13 +88,17 @@
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Dashboard">
-                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Hidden</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="Dashboard">
                 <DiscreteObjectKeyFrame KeyTime="0">
                     <DiscreteObjectKeyFrame.Value>
-                        <FontFamily>Montserrat</FontFamily>
+                        <FontFamily>Montserrat Light</FontFamily>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
@@ -102,6 +106,26 @@
                         <FontFamily>Montserrat Light</FontFamily>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Cleaner1">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="History">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Cleaner2">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="Cleaner_Enter">
@@ -119,7 +143,7 @@
         <Storyboard x:Key="Select_Dashboard">
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Dashboard">
                 <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="Dashboard">
                 <DiscreteObjectKeyFrame KeyTime="0">
@@ -127,7 +151,7 @@
                         <FontFamily>Montserrat Light</FontFamily>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
                     <DiscreteObjectKeyFrame.Value>
                         <FontFamily>Segoe UI</FontFamily>
                     </DiscreteObjectKeyFrame.Value>
@@ -139,7 +163,7 @@
                         <FontFamily>Montserrat Light</FontFamily>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
                     <DiscreteObjectKeyFrame.Value>
                         <FontFamily>Segoe UI</FontFamily>
                     </DiscreteObjectKeyFrame.Value>
@@ -147,7 +171,39 @@
             </ObjectAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Cleaner">
                 <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="History">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Cleaner1">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Cleaner2">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="Update">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="History_Enter">
@@ -159,10 +215,161 @@
         <Storyboard x:Key="History_Leave">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="History">
                 <EasingColorKeyFrame KeyTime="0" Value="#33A3A5A9"/>
-                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#08A3A5A9"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#00A3A5A9"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Key="Update_Enter"/>
+        <Storyboard x:Key="Update_Enter">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Update">
+                <EasingColorKeyFrame KeyTime="0" Value="#00000000"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#33A3A5A9"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Update_Leave">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Update">
+                <EasingColorKeyFrame KeyTime="0" Value="#33A3A5A9"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#00A3A5A9"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="HistoryClick">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="History">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Segoe UI</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Cleaner1">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Dashboard">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="Dashboard">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Cleaner">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="Cleaner">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Cleaner2">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="Update">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="UpdateClick">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Dashboard">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="Dashboard">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Cleaner">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="Cleaner">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Cleaner1">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="History">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="History">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Cleaner2">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="Update">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="Close_X">
@@ -207,8 +414,17 @@
         <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="History">
             <BeginStoryboard x:Name="History_Leave_BeginStoryboard" Storyboard="{StaticResource History_Leave}"/>
         </EventTrigger>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="Update">
             <BeginStoryboard Storyboard="{StaticResource Update_Enter}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="Update">
+            <BeginStoryboard x:Name="Update_Leave_BeginStoryboard" Storyboard="{StaticResource Update_Leave}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="History">
+            <BeginStoryboard Storyboard="{StaticResource HistoryClick}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Update">
+            <BeginStoryboard Storyboard="{StaticResource UpdateClick}"/>
         </EventTrigger>
     </Window.Triggers>
     <Grid x:Name="LayoutRoot" >
@@ -232,9 +448,11 @@
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        <Border   HorizontalAlignment="Left" Height="650" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Width="192.093" Grid.RowSpan="7" Background="#FF464A53" CornerRadius="10,0,0,10" Grid.ColumnSpan="7"/>
-        <TextBlock HorizontalAlignment="Left" Height="47.944" Margin="31.794,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113.299" RenderTransformOrigin="0.905,0.926" Grid.Column="6" Grid.RowSpan="6" FontSize="16"><Run Text="ALFA"/><Run FontFamily="Montserrat Light" Text="BOOST"/><LineBreak/><Run Foreground="#FFA3A5AA" FontFamily="Montserrat Light" Text="DEFENDER"/></TextBlock>
-        <Rectangle HorizontalAlignment="Left" Height="36.944" Margin="18.333,16,0,0" VerticalAlignment="Top" Width="43.175" RenderTransformOrigin="0.482,1.213" Grid.ColumnSpan="7" Grid.RowSpan="6">
+        <Border   HorizontalAlignment="Left" Height="650" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Width="192.093" Grid.RowSpan="7" Background="#FF464A53" CornerRadius="10,0,0,10" Grid.ColumnSpan="7">
+            <TextBlock HorizontalAlignment="Left" Height="16" Margin="24,609,0,0" TextWrapping="Wrap" Text="Version 1.0" VerticalAlignment="Top" Width="93" FontFamily="Montserrat Light"/>
+        </Border>
+        <TextBlock HorizontalAlignment="Left" Height="47.944" Margin="22.794,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113.299" RenderTransformOrigin="0.905,0.926" Grid.Column="6" Grid.RowSpan="3" FontSize="16"><Run Text="ALFA"/><Run FontFamily="Montserrat Light" Text="BOOST"/><LineBreak/><Run Foreground="#FFA3A5AA" FontFamily="Montserrat Light" Text="DEFENDER"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="36.944" Margin="8.333,16,0,0" VerticalAlignment="Top" Width="43.175" RenderTransformOrigin="0.482,1.213" Grid.ColumnSpan="7" Grid.RowSpan="3">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Logo-01.png" Stretch="Uniform"/>
             </Rectangle.Fill>
@@ -384,6 +602,195 @@
             <Button x:Name="Update" Content="Update    " HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Background="#00000000" Foreground="White" BorderBrush="{x:Null}" FontFamily="Montserrat Light"/>
 
         </Grid>
+        <Grid x:Name="Scan_Card" Grid.Column="6" Margin="176,44.345,528,173.003" Grid.Row="5">
+            <Border  HorizontalAlignment="Left" Height="337" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10">
+                <StackPanel Orientation="Horizontal" Margin="63,28,27,178">
+                    <hc:WaveProgressBar Value="50" FontSize="20" Margin="16,9.04,0,28.04" WaveThickness="4"  Background="#FF206F65" BorderBrush="{x:Null}" Width="84">
+                        <hc:WaveProgressBar.WaveFill>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FF4A9C94" Offset="0"/>
+                                <GradientStop Color="#FF206F65" Offset="1"/>
+                            </LinearGradientBrush>
+                        </hc:WaveProgressBar.WaveFill>
+                    </hc:WaveProgressBar>
+                </StackPanel>
+                <Border.Effect>
+                    <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
+                </Border.Effect>
+            </Border>
+            <hc:CircleProgressBar Value="50" HorizontalAlignment="Left" Height="120" Margin="61.334,19.239,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Background="#FF299083" Foreground="#FFF3F1F1"/>
+            <TextBlock HorizontalAlignment="Left" Height="20.252" Margin="82.667,167.003,0,0" TextWrapping="Wrap" Text="Smart Scan" VerticalAlignment="Top" Width="85" FontFamily="Montserrat" FontWeight="Light" FontSize="14"/>
+            <Rectangle HorizontalAlignment="Left" Height="18.645" Margin="52.334,164.61,0,0" VerticalAlignment="Top" Width="19.333" RenderTransformOrigin="0.448,0.249">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
+                </Rectangle.Fill>
+                <Rectangle.Stroke>
+                    <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
+                </Rectangle.Stroke>
+            </Rectangle>
+            <TextBlock HorizontalAlignment="Left" Height="18" Margin="61.334,208.006,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115.333" Foreground="#FF4A9C94" TextTrimming="WordEllipsis" FontStretch="UltraExpanded"><Run Text="Real"/><Run Text="-"/><Run Text="time enabled"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Height="22" Margin="41.334,242.003,0,0" TextWrapping="Wrap" Text="Looking for system junk ..." VerticalAlignment="Top" Width="156.333" FontFamily="Montserrat Light"/>
+            <Button Content="START SCAN" HorizontalAlignment="Left" Height="38" Margin="52.334,279.003,0,0" VerticalAlignment="Top" Width="145.333" BorderBrush="{x:Null}" FontFamily="Montserrat" FontSize="11" Foreground="#FFF7F5F5">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF299083" Offset="0"/>
+                        <GradientStop Color="#FF44968E" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF202020" ShadowDepth="8" BlurRadius="39" Opacity="0.235" Direction="-92"/>
+                </Button.Effect>
+            </Button>
+
+
+        </Grid>
+        <Grid x:Name="Boost_Card" Grid.Column="6" Margin="431,44.345,273,173.003" Grid.Row="5">
+            <Border  HorizontalAlignment="Left" Height="337" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="10,0,-10,0">
+                <StackPanel Orientation="Horizontal" Margin="54,27.003,36,188.997">
+                    <hc:WaveProgressBar Value="30" FontSize="20" Margin="16,9.04,0,28.04" WaveThickness="4"  Background="#379EBF" BorderBrush="{x:Null}" Width="84">
+                        <hc:WaveProgressBar.WaveFill>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#59BEDD" Offset="0"/>
+                                <GradientStop Color="#379EBF" Offset="1"/>
+                            </LinearGradientBrush>
+                        </hc:WaveProgressBar.WaveFill>
+                    </hc:WaveProgressBar>
+                </StackPanel>
+                <Border.Effect>
+                    <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
+                </Border.Effect>
+            </Border>
+            <hc:CircleProgressBar Value="30" HorizontalAlignment="Left" Height="120" Margin="61.334,17.003,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Background="#FF29809C" Foreground="#FFF3F1F1"/>
+            <TextBlock HorizontalAlignment="Left" Height="20.252" Margin="81.667,167.003,0,0" TextWrapping="Wrap" Text="Speed Boost" VerticalAlignment="Top" Width="94" FontFamily="Montserrat" FontWeight="Light" FontSize="14"/>
+            <Rectangle HorizontalAlignment="Left" Height="21.217" Margin="52.334,162.098,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.448,0.249">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="boost.png" Stretch="Uniform"/>
+                </Rectangle.Fill>
+                <Rectangle.Stroke>
+                    <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
+                </Rectangle.Stroke>
+            </Rectangle>
+            <TextBlock HorizontalAlignment="Left" Height="18.728" Margin="61.334,207.642,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF379EBF" TextTrimming="WordEllipsis" FontStretch="UltraExpanded" Text="Faster preformance"/>
+            <TextBlock HorizontalAlignment="Left" Height="22" Margin="50.001,242.67,0,0" TextWrapping="Wrap" Text="10BG / optimized 2 apps" VerticalAlignment="Top" Width="147.666" FontFamily="Montserrat Light"/>
+            <Button Content="BOOST" HorizontalAlignment="Left" Height="38" Margin="52.334,279.003,0,0" VerticalAlignment="Top" Width="145.333" BorderBrush="{x:Null}" Foreground="#FFF7F5F5" FontFamily="Montserrat" FontSize="11">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF379EBF" Offset="0"/>
+                        <GradientStop Color="#FF54B9D8" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF202020" ShadowDepth="8" BlurRadius="39" Opacity="0.235" Direction="-92"/>
+                </Button.Effect>
+            </Button>
+
+
+        </Grid>
+        <Grid x:Name="Clean_Card" Grid.Column="6" Margin="687,43.348,17,174" Grid.Row="5">
+            <Border  HorizontalAlignment="Left" Height="337" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="19,0,-19,0">
+                <StackPanel Orientation="Horizontal" Margin="60,28,30,188">
+                    <hc:WaveProgressBar Value="60" FontSize="20" Margin="16,9.04,0,28.04" WaveThickness="4"  Background="#BF933D" BorderBrush="{x:Null}" Width="84">
+                        <hc:WaveProgressBar.WaveFill>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#E4B55D" Offset="0"/>
+                                <GradientStop Color="#BF933D" Offset="1"/>
+                            </LinearGradientBrush>
+                        </hc:WaveProgressBar.WaveFill>
+                    </hc:WaveProgressBar>
+                </StackPanel>
+                <Border.Effect>
+                    <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
+                </Border.Effect>
+            </Border>
+            <hc:CircleProgressBar Value="60" HorizontalAlignment="Left" Height="120" Margin="77.667,18,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Background="#FFD7A951" Foreground="#FFF3F1F1"/>
+            <TextBlock HorizontalAlignment="Left" Height="20.252" Margin="94.667,167.917,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" FontFamily="Montserrat" FontWeight="Light" FontSize="14"><Run Text="File "/><Run Text="Cle"/><Run Text="aner"/></TextBlock>
+            <Rectangle HorizontalAlignment="Left" Height="21.217" Margin="59.001,161.783,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.448,0.249">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="broom.png" Stretch="Uniform"/>
+                </Rectangle.Fill>
+                <Rectangle.Stroke>
+                    <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
+                </Rectangle.Stroke>
+            </Rectangle>
+            <TextBlock HorizontalAlignment="Left" Height="18.728" Margin="83.334,209.642,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105.333" Foreground="#FF379EBF" TextTrimming="WordEllipsis" FontStretch="UltraExpanded" Text="2.5 GB Junk files"/>
+            <TextBlock HorizontalAlignment="Left" Height="22" Margin="59.001,242.67,0,0" TextWrapping="Wrap" Text="Cache Free up memory" VerticalAlignment="Top" Width="147.666" FontFamily="Montserrat Light"/>
+            <Button Content="Clean" HorizontalAlignment="Left" Height="38" Margin="61.334,278.003,0,0" VerticalAlignment="Top" Width="145.333" BorderBrush="{x:Null}" Foreground="#FFF7F5F5" FontFamily="Montserrat" FontSize="11">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE4B55D" Offset="0"/>
+                        <GradientStop Color="#FFBF933D" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF202020" ShadowDepth="8" BlurRadius="39" Opacity="0.235" Direction="-92"/>
+                </Button.Effect>
+            </Button>
+
+
+        </Grid>
+        <Grid x:Name="footerTools_item1" Grid.Column="6" Margin="176,423.345,528,0" Grid.Row="5">
+            <Border  HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="0,13.003,0,0">
+                <Border.Effect>
+                    <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
+                </Border.Effect>
+            </Border>    
+            <Ellipse HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" RenderTransformOrigin="-0.143,0.179" Margin="192.24,0,0,0">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF2C9184" Offset="0"/>
+                        <GradientStop Color="#FF41938A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Rectangle HorizontalAlignment="Left" Height="18.333" Margin="38.167,42.837,0,0" VerticalAlignment="Top" Width="18.666">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="fix.png" Stretch="Uniform"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock HorizontalAlignment="Left" Height="15.997" Margin="201.5,4.503,0,0" TextWrapping="Wrap" Text="!" VerticalAlignment="Top" Width="9.5" TextAlignment="Center" FontSize="14"/>
+            <TextBlock HorizontalAlignment="Left" Height="19.333" Margin="72.667,42.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120.667"><Run Foreground="#FF399288" Text="0"/><Run Text=" "/><Run Text=" "/><Run FontFamily="Montserrat Light" Text="Problems found"/></TextBlock>
+            <Border BorderThickness="1" HorizontalAlignment="Left" Height="27" Margin="53.667,80.003,0,0" VerticalAlignment="Top" Width="125.167" CornerRadius="12" Background="#FF399288">
+                <Border.Effect>
+                    <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
+                </Border.Effect>
+                <TextBlock HorizontalAlignment="Left" Height="17" Margin="25.667,4.5,0,0" TextWrapping="Wrap" Text="Fix Problems" VerticalAlignment="Top" Width="88.5" FontSize="11" FontFamily="Montserrat"/>
+            </Border>
+
+
+        </Grid>
+        <Grid x:Name="footerTools_item2" Grid.Column="6" Margin="441,423.345,263,0" Grid.Row="5">
+            <Border  HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="0,13.003,0,0">
+                <Border.Effect>
+                    <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
+                </Border.Effect>
+            </Border>
+            <Rectangle HorizontalAlignment="Left" Height="18.333" Margin="38.167,42.837,0,0" VerticalAlignment="Top" Width="18.666">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock HorizontalAlignment="Left" Height="32.666" Margin="72.667,42.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120.667" Text="Virus, threat protection" FontFamily="Montserrat Light"/>
+            <TextBlock HorizontalAlignment="Left" Height="16.667" Margin="43.667,97.003,0,0" TextWrapping="Wrap" Text="No action needed" VerticalAlignment="Top" Width="114.666" FontFamily="Montserrat Light" Foreground="#FF57CDC0"/>
+
+
+        </Grid>
+        <Grid x:Name="footerTools_item3" Grid.Column="6" Margin="706.001,423.345,17.999,0" Grid.Row="5" Grid.ColumnSpan="2">
+            <Border  HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="0,13.003,0,0">
+                <Border.Effect>
+                    <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
+                </Border.Effect> 
+            </Border>
+            <Rectangle HorizontalAlignment="Left" Height="18.333" Margin="38.167,42.837,0,0" VerticalAlignment="Top" Width="18.666">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock HorizontalAlignment="Left" Height="32.666" Margin="72.667,42.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120.667" Text="Firewall &amp; network Protection" FontFamily="Montserrat Light"/>
+            <TextBlock HorizontalAlignment="Left" Height="16.667" Margin="43.667,97.003,0,0" TextWrapping="Wrap" Text="No action needed" VerticalAlignment="Top" Width="114.666" FontFamily="Montserrat Light" Foreground="#FF57CDC0"/>
+
+
+        </Grid>
+
 
     </Grid>
 
