@@ -1,0 +1,390 @@
+﻿<Window x:Class="ALFABOOST.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:local="clr-namespace:ALFABOOST"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="1000" Background="{x:Null}" Foreground="White" WindowStyle="None" AllowsTransparency="True" FontFamily="Montserrat">
+    <Window.Resources>
+        <Storyboard x:Key="CloseWindEnter">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="CloseWindow">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF464A53"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FFE21F1F"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CloseWinLeave">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="CloseWindow">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFE21F1F"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF464A53"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="minimizeEnter">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="minimize">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF464A53"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF87888B"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="minimizeLeave">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="minimize">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF87888B"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF464A53"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="minimizeScreenEnter">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="maxwindow">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF464A53"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF87888B"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF87888B"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle1">
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF87888B"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="minimizeScreenLeave">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="maxwindow">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF87888B"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF464A53"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF87888B"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF464A53"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle1">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF87888B"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF464A53"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="DashboardEnter">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Dashboard">
+                <EasingColorKeyFrame KeyTime="0" Value="#00000000"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#33A3A5A9"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="DashboardLeave">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Dashboard">
+                <EasingColorKeyFrame KeyTime="0" Value="#33A3A5A9"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#00A3A5A9"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Select_Cleaner">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Cleaner">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="Cleaner">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Segoe UI</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Dashboard">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="Dashboard">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Cleaner_Enter">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Cleaner">
+                <EasingColorKeyFrame KeyTime="0" Value="#00000000"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#33A3A5A9"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Cleaner_Leave">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Cleaner">
+                <EasingColorKeyFrame KeyTime="0" Value="#33A3A5A9"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#00A3A5A9"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Select_Dashboard">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Dashboard">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="Dashboard">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Segoe UI</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="Cleaner">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Montserrat Light</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Segoe UI</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IconSelector_Cleaner">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="History_Enter">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="History">
+                <EasingColorKeyFrame KeyTime="0" Value="#00000000"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#33A3A5A9"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="History_Leave">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="History">
+                <EasingColorKeyFrame KeyTime="0" Value="#33A3A5A9"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#08A3A5A9"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Update_Enter"/>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="Close_X">
+            <BeginStoryboard Storyboard="{StaticResource CloseWindEnter}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="Minise">
+            <BeginStoryboard x:Name="minimizeEnter_BeginStoryboard" Storyboard="{StaticResource minimizeEnter}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="Minise">
+            <BeginStoryboard x:Name="minimizeLeave_BeginStoryboard" Storyboard="{StaticResource minimizeLeave}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="Close_X">
+            <BeginStoryboard Storyboard="{StaticResource CloseWinLeave}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="maxwindow">
+            <BeginStoryboard x:Name="minimizeEnter_BeginStoryboard1" Storyboard="{StaticResource minimizeScreenEnter}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="maxwindow">
+            <BeginStoryboard x:Name="minimizeScreenLeave_BeginStoryboard" Storyboard="{StaticResource minimizeScreenLeave}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="Dashboard">
+            <BeginStoryboard Storyboard="{StaticResource DashboardEnter}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="Dashboard">
+            <BeginStoryboard x:Name="DashboardLeave_BeginStoryboard" Storyboard="{StaticResource DashboardLeave}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Cleaner">
+            <BeginStoryboard x:Name="Select_Cleaner_BeginStoryboard" Storyboard="{StaticResource Select_Cleaner}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="Cleaner">
+            <BeginStoryboard Storyboard="{StaticResource Cleaner_Enter}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="Cleaner">
+            <BeginStoryboard x:Name="minimizeScreenEnter_BeginStoryboard" Storyboard="{StaticResource Cleaner_Leave}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Dashboard">
+            <BeginStoryboard Storyboard="{StaticResource Select_Dashboard}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="History">
+            <BeginStoryboard x:Name="History_Enter_BeginStoryboard" Storyboard="{StaticResource History_Enter}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="History">
+            <BeginStoryboard x:Name="History_Leave_BeginStoryboard" Storyboard="{StaticResource History_Leave}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Update_Enter}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid x:Name="LayoutRoot" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <Border   HorizontalAlignment="Left" Height="650" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Width="192.093" Grid.RowSpan="7" Background="#FF464A53" CornerRadius="10,0,0,10" Grid.ColumnSpan="7"/>
+        <TextBlock HorizontalAlignment="Left" Height="47.944" Margin="31.794,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113.299" RenderTransformOrigin="0.905,0.926" Grid.Column="6" Grid.RowSpan="6" FontSize="16"><Run Text="ALFA"/><Run FontFamily="Montserrat Light" Text="BOOST"/><LineBreak/><Run Foreground="#FFA3A5AA" FontFamily="Montserrat Light" Text="DEFENDER"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="36.944" Margin="18.333,16,0,0" VerticalAlignment="Top" Width="43.175" RenderTransformOrigin="0.482,1.213" Grid.ColumnSpan="7" Grid.RowSpan="6">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Logo-01.png" Stretch="Uniform"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Border Grid.Column="6"  HorizontalAlignment="Left" Height="650" Grid.RowSpan="7" VerticalAlignment="Top" Width="807.907" Background="#FF5F646F" CornerRadius="0,10,10,0" Margin="152.093,0,0,0" Grid.ColumnSpan="2" MouseDown="Drage_appRight" />
+        <Grid x:Name="WindowOpt" Grid.Column="6" Margin="793.208,0,19.218,2.4" Grid.Row="2">
+            <Ellipse x:Name="minimize" Fill="#FF464A53" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" RenderTransformOrigin="34.409,1.545">
+                <Ellipse.Effect>
+                    <DropShadowEffect Direction="-35" ShadowDepth="2" BlurRadius="12" Opacity="0.305"/>
+                </Ellipse.Effect>
+            </Ellipse>
+            <Ellipse x:Name="maxwindow" Fill="#FF464A53" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" RenderTransformOrigin="34.409,1.545" Margin="48.667,0,0,0"  MouseDown="max_window" >
+                <Ellipse.Effect>
+                    <DropShadowEffect Direction="-35" ShadowDepth="2" BlurRadius="12" Opacity="0.305"/>
+                </Ellipse.Effect>
+            </Ellipse>
+            <Ellipse x:Name="CloseWindow" Fill="#FF464A53" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" RenderTransformOrigin="34.409,1.545" Margin="98.574,0.083,0,0" >
+                <Ellipse.Effect>
+                    <DropShadowEffect Direction="-35" ShadowDepth="2" BlurRadius="12" Opacity="0.305"/>
+                </Ellipse.Effect>
+            </Ellipse>
+            <TextBlock x:Name="Close_X" HorizontalAlignment="Right" Width="29" Margin="0,-6.898,0,16.95" RenderTransformOrigin="15.265,3.867" FontFamily="Montserrat Light" TextAlignment="Center"  MouseDown="Close_Window" >
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform><Run/><LineBreak/><Run Text="X"/><LineBreak/><Run/></TextBlock>
+            <Rectangle x:Name="rectangle1" Fill="#FF464A53" HorizontalAlignment="Left" Height="7.225" Margin="60.934,10,0,0" VerticalAlignment="Top" Width="8.265" Stroke="White" StrokeThickness="0.5" MouseDown="max_window" />
+            <Rectangle x:Name="rectangle" Fill="#FF464A53" HorizontalAlignment="Left" Height="7.225" Margin="57.698,12.917,0,0" VerticalAlignment="Top" Width="8.265" Stroke="White" StrokeThickness="0.5"  MouseDown="max_window" />
+            <TextBlock x:Name="Minise" HorizontalAlignment="Right" Width="29" Margin="0,-12.073,98.574,22.125" RenderTransformOrigin="15.265,3.867" FontFamily="Montserrat Light" TextAlignment="Center"  MouseDown="Minimize_Window" >
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform><Run/><LineBreak/><Run Text="_"/><LineBreak/><Run/></TextBlock>
+
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Height="22.389" Margin="191.74,10,0,0" TextWrapping="Wrap" Text="You are fully protected" VerticalAlignment="Top" Width="208.833" FontSize="18" Grid.Column="6" Grid.Row="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="13.056" Margin="419.573,18.047,0,0" TextWrapping="Wrap" Text="SAMRT SCAN RECOMMANDED" VerticalAlignment="Top" Width="208.833" FontSize="10" Grid.Column="6" Grid.Row="2" FontFamily="Montserrat Light" Foreground="#FFCBCACC"/>
+        <Grid x:Name="Dashboard_Item" Grid.ColumnSpan="7" Margin="0,29.012,787.907,483.414" Grid.Row="5">
+            <Ellipse x:Name="IconSelector_Dashboard" HorizontalAlignment="Left" Height="36.002" StrokeThickness="5" VerticalAlignment="Top" Width="36.002" Margin="12.285,2.667,0,0" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="iconSelect-01.png" Stretch="None"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Rectangle HorizontalAlignment="Left" Height="18.541" VerticalAlignment="Top" Width="21.739" RenderTransformOrigin="0.528,1.152" Margin="19.158,12.256,0,0">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="dashboard.png" Stretch="Uniform"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Button x:Name="Dashboard" Content="Dashboard" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Background="#00000000" Foreground="White" BorderBrush="{x:Null}"/>
+        </Grid>
+        <Grid x:Name="Cleaner_Item" Grid.ColumnSpan="7" Margin="0,87.345,787.907,425.081" Grid.Row="5">
+            <Ellipse x:Name="IconSelector_Cleaner" HorizontalAlignment="Left" Height="36.002" StrokeThickness="5" VerticalAlignment="Top" Width="36.002" Margin="12.285,2.667,0,0" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="iconSelect-01.png" Stretch="None"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Rectangle HorizontalAlignment="Left" Height="22.123" VerticalAlignment="Top" Width="25.937" RenderTransformOrigin="0.528,1.152" Margin="17.059,9.799,0,0">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="broom.png" Stretch="Uniform"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Button x:Name="Cleaner" Content="Cleaner     " HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Background="#00000000" Foreground="White" BorderBrush="{x:Null}" FontFamily="Montserrat Light"/>
+
+        </Grid>
+        <Grid x:Name="History_Item" Grid.ColumnSpan="7" Margin="0,139.267,787.907,373.159" Grid.Row="5" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Ellipse x:Name="IconSelector_Cleaner1" HorizontalAlignment="Left" Height="36.002" StrokeThickness="5" VerticalAlignment="Top" Width="36.002" Margin="12.285,2.667,0,0" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="iconSelect-01.png" Stretch="None"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Rectangle HorizontalAlignment="Left" Height="22.123" VerticalAlignment="Top" Width="25.937" RenderTransformOrigin="0.528,1.152" Margin="17.059,9.799,0,0">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="counterclockwise.png" Stretch="Uniform"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Button x:Name="History" Content="History       " HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Background="#00000000" Foreground="White" BorderBrush="{x:Null}" FontFamily="Montserrat Light"/>
+
+        </Grid>
+        <Grid x:Name="Update_Item" Grid.ColumnSpan="7" Margin="0,189.678,787.907,322.748" Grid.Row="5" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Ellipse x:Name="IconSelector_Cleaner2" HorizontalAlignment="Left" Height="36.002" StrokeThickness="5" VerticalAlignment="Top" Width="36.002" Margin="12.285,2.667,0,0" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="iconSelect-01.png" Stretch="None"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Rectangle HorizontalAlignment="Left" Height="22.123" VerticalAlignment="Top" Width="25.937" RenderTransformOrigin="0.528,1.152" Margin="17.059,9.799,0,0">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="updated.png" Stretch="Uniform"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Button x:Name="Update" Content="Update    " HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Background="#00000000" Foreground="White" BorderBrush="{x:Null}" FontFamily="Montserrat Light"/>
+
+        </Grid>
+
+    </Grid>
+
+</Window>
