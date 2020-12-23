@@ -139,6 +139,10 @@
                 <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="HistoryResult">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="Cleaner_Enter">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Cleaner">
@@ -224,6 +228,10 @@
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DashboardLayout">
                 <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="HistoryResult">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="History_Enter">
@@ -314,6 +322,22 @@
                         <FontFamily>Montserrat Light</FontFamily>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DashboardLayout">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ScanLayout">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ResultOfScan">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="HistoryResult">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="UpdateClick">
@@ -814,7 +838,7 @@
 
 
         </Grid>
-        <Grid x:Name="ScanLayout" Grid.Column="6" Margin="177,54.582,16,0" Grid.Row="2" Grid.RowSpan="4">
+        <Grid x:Name="ScanLayout" Grid.Column="6" Margin="177,54.582,16,0" Grid.Row="2" Grid.RowSpan="4" Visibility="Hidden">
             <TextBlock x:Name="JunkCleaner" HorizontalAlignment="Left" Height="36.353" Margin="15.74,0,0,0" TextWrapping="Wrap" Text="Junk Cleaner" VerticalAlignment="Top" Width="251.26" FontSize="30" RenderTransformOrigin="0.5,0.5" FontWeight="Medium">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
@@ -903,7 +927,6 @@
                 </Rectangle>
                 <TextBlock x:Name="Multimedia" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" Text="Multimedia" VerticalAlignment="Top" Width="147" FontSize="25"/>
                 <TextBlock x:Name="MultimediafilesSize2" HorizontalAlignment="Left" Height="28" Margin="264,6,-53,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontSize="24" Foreground="#FFE8C073"><Run Text="0 GB"/></TextBlock>
-                <Rectangle x:Name="Saperator3" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
 
 
             </Grid>
@@ -913,7 +936,81 @@
                     <DropShadowEffect Opacity="0.15" BlurRadius="16"/>
                 </Rectangle.Effect>
             </Rectangle>
-            <TextBlock x:Name="ClEANTXT" HorizontalAlignment="Left" Height="20.5" Margin="564.75,-82.12,-318,0" TextWrapping="Wrap" Text="SCAN" VerticalAlignment="Top" Width="87.25" FontSize="20" TextAlignment="Center" FontWeight="Medium"/>
+            <TextBlock x:Name="ClEANTXT" HorizontalAlignment="Left" Height="20.5" Margin="564.75,-82.12,-318,0" TextWrapping="Wrap" Text="Clean" VerticalAlignment="Top" Width="87.25" FontSize="20" TextAlignment="Center" FontWeight="Medium"/>
+
+
+        </Grid>
+        <Grid x:Name="HistoryResult" Grid.Column="6" Margin="178,87.345,429,89" Grid.Row="5">
+            <Grid x:Name="ScanHist" Margin="13.74,0,-13.74,344.003">
+                <Rectangle x:Name="LastScanIcon1" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="scan.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="LastScanHist" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" Text="Last Scan" VerticalAlignment="Top" Width="147" FontSize="25"/>
+                <TextBlock x:Name="LastScanDate1" HorizontalAlignment="Left" Height="32.993" Margin="263,1.007,-102,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="24" Foreground="#FF50C3E8" Text="Today" FontFamily="Montserrat Light"/>
+                <Rectangle x:Name="Saperator4" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
+
+
+            </Grid>
+            <Grid x:Name="CleanHist" Margin="13.74,87.003,-13.74,257">
+                <Rectangle x:Name="LastCleanIcon" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="clean.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="LastCleanHist" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" FontSize="25"><Run Text="Last "/><Run Text="Clean"/></TextBlock>
+                <TextBlock x:Name="LastCleanDate1" HorizontalAlignment="Left" Height="32.993" Margin="263,1.007,-102,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="24" Foreground="#FF50C3E8" Text="Yesterday" FontFamily="Montserrat Light"/>
+                <Rectangle x:Name="Saperator5" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
+
+
+            </Grid>
+            <Grid x:Name="GainedHist" Margin="13.74,173.003,-13.74,171">
+                <Rectangle x:Name="GainedIcon1" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="upload.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="GainedHist1" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" FontSize="25" Text="Gained"/>
+                <TextBlock x:Name="GainedSize" HorizontalAlignment="Left" Height="32.993" Margin="263,1.007,-102,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="24" Foreground="#FF50C3E8" Text="23 GB" FontFamily="Montserrat Light"/>
+                <Rectangle x:Name="Saperator6" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
+
+
+            </Grid>
+            <Grid x:Name="NumScanHist" Margin="13.74,257.003,-13.74,87">
+                <Rectangle x:Name="NumScanIcon2" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="abacus.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="NumScanTxt" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" FontSize="25" Text="Scans num"/>
+                <TextBlock x:Name="NumScanHist1" HorizontalAlignment="Left" Height="32.993" Margin="263,1.007,-102,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="24" Foreground="#FF50C3E8" Text="3" FontFamily="Montserrat Light"/>
+                <Rectangle x:Name="Saperator7" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
+
+
+            </Grid>
+            <Grid x:Name="NumCleanHist" Margin="13.74,344.003,-13.74,0">
+                <Rectangle x:Name="NumCleanIcon3" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="abacus-tool-square-variant.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="NumCleanTxt" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" FontSize="25"><Run Text="Clean"/><Run Text=" num"/></TextBlock>
+                <TextBlock x:Name="NumCleanHist1" HorizontalAlignment="Left" Height="32.993" Margin="263,1.007,-102,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="24" Foreground="#FF50C3E8" Text="5" FontFamily="Montserrat Light"/>
+
+
+            </Grid>
+            <TextBlock x:Name="HistoryTitle" HorizontalAlignment="Left" Height="36.353" Margin="13.74,-88.415,0,0" TextWrapping="Wrap" Text="History" VerticalAlignment="Top" Width="251.26" FontSize="30" RenderTransformOrigin="0.5,0.5" FontWeight="Medium">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="-0.258"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-0.496"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Height="19.586" Margin="13.74,-43.997,0,0" TextWrapping="Wrap" Text="Check out your app usage history" VerticalAlignment="Top" Width="239.26" FontFamily="Montserrat Light" FontSize="14"/>
 
 
         </Grid>

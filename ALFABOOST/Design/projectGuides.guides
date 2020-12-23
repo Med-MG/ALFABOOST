@@ -11,17 +11,18 @@
             <Guide Alignment="Left" Position="481" />
             <Guide Alignment="Left" Position="717" />
             <Guide Alignment="Left" Position="962" />
-            <Guide Alignment="Left" Position="216" />
+            <Guide Alignment="Left" Position="234" />
             <Guide Alignment="Top" Position="137" />
-            <Guide Alignment="Top" Position="260" />
-            <Guide Alignment="Top" Position="157" />
-            <Guide Alignment="Top" Position="240" />
-            <Guide Alignment="Top" Position="302" />
-            <Guide Alignment="Top" Position="397" />
+            <Guide Alignment="Top" Position="252" />
+            <Guide Alignment="Top" Position="217" />
+            <Guide Alignment="Top" Position="304" />
+            <Guide Alignment="Top" Position="390" />
             <Guide Alignment="Top" Position="354" />
             <Guide Alignment="Top" Position="333" />
-            <Guide Alignment="Top" Position="452" />
-            <Guide Alignment="Top" Position="494" />
+            <Guide Alignment="Top" Position="420" />
+            <Guide Alignment="Top" Position="475" />
+            <Guide Alignment="Top" Position="504" />
+            <Guide Alignment="Left" Position="192" />
           </Guides>
         </GuideModel>
       </GuideModels>

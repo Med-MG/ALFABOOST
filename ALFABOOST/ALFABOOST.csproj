@@ -47,6 +47,9 @@
     <Reference Include="HandyControl, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\HandyControl.3.0.0\lib\net47\HandyControl.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -67,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="History.cs" />
     <Compile Include="SizeCalculator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -155,6 +159,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="video-player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="scan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="clean.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="abacus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="abacus-tool-square-variant.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

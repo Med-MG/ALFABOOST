@@ -172,5 +172,19 @@ namespace ALFABOOST
 
 
 
+        /*
+         * History
+         * Desentrelize Json File "hisroty" and display data
+         * 
+         */
+
+        void DisplayHistory()
+        {
+            string historyData = File.ReadAllText("history.json");
+            History hist = new History();
+
+            Newtonsoft.Json.JsonConvert.PopulateObject(historyData, hist);
+        }
+
     }
 }
