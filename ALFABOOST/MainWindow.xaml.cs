@@ -30,8 +30,8 @@ namespace ALFABOOST
         }
 
 
-        private static long FullSize = 0;
-        IDictionary<string, long>  DirTypesSizes = new Dictionary<string, long>();
+        private static double FullSize = 0;
+        List<double>  DirTypesSizes = new List<double>();
 
         private void Close_Window(object sender, MouseButtonEventArgs e)
         {
@@ -68,14 +68,7 @@ namespace ALFABOOST
             worker.RunWorkerAsync();
         }
 
-        //void worker_DoWork(object sender, DoWorkEventArgs e)
-        //{
-        //    for (int i = 0; i < 100; i++)
-        //    {
-        //        (sender as BackgroundWorker).ReportProgress(i);
-        //        Thread.Sleep(100);
-        //    }
-        //}
+      
 
         void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -114,7 +107,7 @@ namespace ALFABOOST
 
                 foreach (var DirPaths in DirTypesPaths)
                 {
-                    long currentSize = 0;
+                    double currentSize = 0;
                     
                     var dirInfo = new DirectoryInfo(DirPaths.Value);
                     foreach (FileInfo fi in dirInfo.GetFiles("*", SearchOption.AllDirectories))
@@ -127,10 +120,10 @@ namespace ALFABOOST
                     }
                     (sender as BackgroundWorker).ReportProgress(count+=25);
                     Thread.Sleep(100);
-                    DirTypesSizes.Add(DirPaths.Key, currentSize);
+                    DirTypesSizes.Add(currentSize);
                 }
 
-                DirTypesSizes.Add("FullSize", FullSize);
+                DirTypesSizes.Add(FullSize);
 
                 
 
@@ -141,18 +134,36 @@ namespace ALFABOOST
                 throw;
             }
 
-            HideDashboard();
+            DisplayCleaner();
+            
         }
 
-        void HideDashboard()
+        void DisplayCleaner()
         {
 
             this.Dispatcher.Invoke(() =>
             {
-                //Scan_Card.Visibility = Visibility.Hidden;
 
+
+
+                //Invoke Sotyboard Of cleaner
                 Storyboard sb = this.FindResource("Select_Cleaner") as Storyboard;
                 sb.Begin();
+                //Hide The cards visibility
+                LastScanCard.Visibility = Visibility.Hidden;
+                LastCleanCard.Visibility = Visibility.Hidden;
+                broom.Visibility = Visibility.Hidden;
+
+                //Display result UI
+                ResultOfScan.Visibility = Visibility.Visible;
+
+                //Display result
+                
+                WinfilesSize.Text = SizeCalculator.ToFileSize(DirTypesSizes[0]);
+                BrowserfilesSize.Text = SizeCalculator.ToFileSize(DirTypesSizes[1]);
+                SoftwarefilesSize.Text = SizeCalculator.ToFileSize(DirTypesSizes[2]);
+                MultimediafilesSize2.Text = SizeCalculator.ToFileSize(DirTypesSizes[3]);
+                JunkCleaner.Text = SizeCalculator.ToFileSize(DirTypesSizes[4]);
             });
 
            

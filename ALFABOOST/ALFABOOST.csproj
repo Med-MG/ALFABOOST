@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SizeCalculator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -139,6 +140,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="fix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cleaning Broom-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="windows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="browser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="video-player.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

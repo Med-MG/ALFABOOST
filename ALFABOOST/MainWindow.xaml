@@ -127,6 +127,18 @@
                 <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ScanLayout">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Hidden</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DashboardLayout">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="Cleaner_Enter">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Cleaner">
@@ -204,6 +216,14 @@
                         <FontFamily>Montserrat Light</FontFamily>
                     </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ScanLayout">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DashboardLayout">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="History_Enter">
@@ -448,7 +468,7 @@
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        <Border   HorizontalAlignment="Left" Height="650" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Width="192.093" Grid.RowSpan="7" Background="#FF464A53" CornerRadius="10,0,0,10" Grid.ColumnSpan="7">
+        <Border   HorizontalAlignment="Left" Height="650" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Width="192.093" Grid.RowSpan="7" Background="#FF464A53" CornerRadius="10,0,0,10" Grid.ColumnSpan="7" d:IsLocked="True">
             <TextBlock HorizontalAlignment="Left" Height="16" Margin="24,609,0,0" TextWrapping="Wrap" Text="Version 1.0" VerticalAlignment="Top" Width="93" FontFamily="Montserrat Light"/>
         </Border>
         <TextBlock HorizontalAlignment="Left" Height="47.944" Margin="22.794,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113.299" RenderTransformOrigin="0.905,0.926" Grid.Column="6" Grid.RowSpan="3" FontSize="16"><Run Text="ALFA"/><Run FontFamily="Montserrat Light" Text="BOOST"/><LineBreak/><Run Foreground="#FFA3A5AA" FontFamily="Montserrat Light" Text="DEFENDER"/></TextBlock>
@@ -458,7 +478,7 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Border Grid.Column="6"  HorizontalAlignment="Left" Height="650" Grid.RowSpan="7" VerticalAlignment="Top" Width="807.907" Background="#FF5F646F" CornerRadius="0,10,10,0" Margin="152.093,0,0,0" Grid.ColumnSpan="2" MouseDown="Drage_appRight" />
+        <Border Grid.Column="6"  HorizontalAlignment="Left" Height="650" Grid.RowSpan="7" VerticalAlignment="Top" Width="807.907" Background="#FF5F646F" CornerRadius="0,10,10,0" Margin="152.093,0,0,0" Grid.ColumnSpan="2" MouseDown="Drage_appRight" d:IsLocked="True" />
         <Grid x:Name="WindowOpt" Grid.Column="6" Margin="793.208,0,19.218,2.4" Grid.Row="2">
             <Ellipse x:Name="minimize" Fill="#FF464A53" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" RenderTransformOrigin="34.409,1.545">
                 <Ellipse.Effect>
@@ -602,191 +622,298 @@
             <Button x:Name="Update" Content="Update    " HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Background="#00000000" Foreground="White" BorderBrush="{x:Null}" FontFamily="Montserrat Light"/>
 
         </Grid>
-        <Grid x:Name="Scan_Card" Grid.Column="6" Margin="176,44.345,528,173.003" Grid.Row="5">
-            <Border  HorizontalAlignment="Left" Height="337" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10">
-                <StackPanel Orientation="Horizontal" Margin="63,28,27,178">
-                    <hc:WaveProgressBar x:Name="WaveProgress" Maximum="100" Value="0" FontSize="20" Margin="16,9.04,0,28.04" WaveThickness="4"  Background="#FF206F65" BorderBrush="{x:Null}" Width="84">
-                        <hc:WaveProgressBar.WaveFill>
-                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                <GradientStop Color="#FF4A9C94" Offset="0"/>
-                                <GradientStop Color="#FF206F65" Offset="1"/>
-                            </LinearGradientBrush>
-                        </hc:WaveProgressBar.WaveFill>
-                    </hc:WaveProgressBar>
-                </StackPanel>
-                <Border.Effect>
-                    <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
-                </Border.Effect>
-            </Border>
-            <hc:CircleProgressBar x:Name="ScanCircle" Maximum="100" Value="0" HorizontalAlignment="Left" Height="120" Margin="61.334,19.239,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Background="#FF299083" Foreground="#FFF3F1F1"/>
-            <TextBlock HorizontalAlignment="Left" Height="20.252" Margin="82.667,167.003,0,0" TextWrapping="Wrap" Text="Smart Scan" VerticalAlignment="Top" Width="85" FontFamily="Montserrat" FontWeight="Light" FontSize="14"/>
-            <Rectangle HorizontalAlignment="Left" Height="18.645" Margin="52.334,164.61,0,0" VerticalAlignment="Top" Width="19.333" RenderTransformOrigin="0.448,0.249">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
-                </Rectangle.Fill>
-                <Rectangle.Stroke>
-                    <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
-                </Rectangle.Stroke>
-            </Rectangle>
-            <TextBlock HorizontalAlignment="Left" Height="18" Margin="61.334,208.006,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115.333" Foreground="#FF4A9C94" TextTrimming="WordEllipsis" FontStretch="UltraExpanded"><Run Text="Real"/><Run Text="-"/><Run Text="time enabled"/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" Height="22" Margin="41.334,242.003,0,0" TextWrapping="Wrap" Text="Looking for system junk ..." VerticalAlignment="Top" Width="156.333" FontFamily="Montserrat Light"/>
-            <Button Content="START SCAN" HorizontalAlignment="Left" Height="38" Margin="52.334,279.003,0,0" VerticalAlignment="Top" Width="145.333" BorderBrush="{x:Null}" FontFamily="Montserrat" FontSize="11" Foreground="#FFF7F5F5" Click="StartScan" >
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF299083" Offset="0"/>
-                        <GradientStop Color="#FF44968E" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-                <Button.Effect>
-                    <DropShadowEffect Color="#FF202020" ShadowDepth="8" BlurRadius="39" Opacity="0.235" Direction="-92"/>
-                </Button.Effect>
-            </Button>
+        <Grid x:Name="DashboardLayout" Grid.ColumnSpan="2" Grid.Column="6" Margin="176,43.348,17.999,0" Grid.Row="5" d:IsHidden="True">
+            <Grid x:Name="Scan_Card" Margin="0,0.997,530.001,173.003">
+                <Border  HorizontalAlignment="Left" Height="337" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
+                    </Border.Effect>
+                    <StackPanel Orientation="Horizontal" Margin="63,28,27,178">
+                        <hc:WaveProgressBar x:Name="WaveProgress" Maximum="100" Value="0" FontSize="20" Margin="16,9.04,0,28.04" WaveThickness="4"  Background="#FF206F65" BorderBrush="{x:Null}" Width="84">
+                            <hc:WaveProgressBar.WaveFill>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FF4A9C94" Offset="0"/>
+                                    <GradientStop Color="#FF206F65" Offset="1"/>
+                                </LinearGradientBrush>
+                            </hc:WaveProgressBar.WaveFill>
+                        </hc:WaveProgressBar>
+                    </StackPanel>
+                </Border>
+                <hc:CircleProgressBar x:Name="ScanCircle" Maximum="100" Value="0" HorizontalAlignment="Left" Height="120" Margin="61.334,19.239,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Background="#FF299083" Foreground="#FFF3F1F1"/>
+                <TextBlock HorizontalAlignment="Left" Height="20.252" Margin="82.667,167.003,0,0" TextWrapping="Wrap" Text="Smart Scan" VerticalAlignment="Top" Width="85" FontFamily="Montserrat" FontWeight="Light" FontSize="14"/>
+                <Rectangle HorizontalAlignment="Left" Height="18.645" Margin="52.334,164.61,0,0" VerticalAlignment="Top" Width="19.333" RenderTransformOrigin="0.448,0.249">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                    <Rectangle.Stroke>
+                        <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
+                    </Rectangle.Stroke>
+                </Rectangle>
+                <TextBlock HorizontalAlignment="Left" Height="18" Margin="61.334,208.006,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115.333" Foreground="#FF4A9C94" TextTrimming="WordEllipsis" FontStretch="UltraExpanded"><Run Text="Real"/><Run Text="-"/><Run Text="time enabled"/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="41.334,242.003,0,0" TextWrapping="Wrap" Text="Looking for system junk ..." VerticalAlignment="Top" Width="156.333" FontFamily="Montserrat Light"/>
+                <Button Content="START SCAN" HorizontalAlignment="Left" Height="38" Margin="52.334,279.003,0,0" VerticalAlignment="Top" Width="145.333" BorderBrush="{x:Null}" FontFamily="Montserrat" FontSize="11" Foreground="#FFF7F5F5" Click="StartScan" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF299083" Offset="0"/>
+                            <GradientStop Color="#FF44968E" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF202020" ShadowDepth="8" BlurRadius="39" Opacity="0.235" Direction="-92"/>
+                    </Button.Effect>
+                </Button>
+
+
+            </Grid>
+            <Grid x:Name="Boost_Card" Margin="255,0.997,275.001,173.003">
+                <Border  HorizontalAlignment="Left" Height="337" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="10,0,-10,0">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
+                    </Border.Effect>
+                    <StackPanel Orientation="Horizontal" Margin="54,27.003,36,188.997">
+                        <hc:WaveProgressBar Value="30" FontSize="20" Margin="16,9.04,0,28.04" WaveThickness="4"  Background="#379EBF" BorderBrush="{x:Null}" Width="84">
+                            <hc:WaveProgressBar.WaveFill>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#59BEDD" Offset="0"/>
+                                    <GradientStop Color="#379EBF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </hc:WaveProgressBar.WaveFill>
+                        </hc:WaveProgressBar>
+                    </StackPanel>
+                </Border>
+                <hc:CircleProgressBar Value="30" HorizontalAlignment="Left" Height="120" Margin="61.334,17.003,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Background="#FF29809C" Foreground="#FFF3F1F1"/>
+                <TextBlock HorizontalAlignment="Left" Height="20.252" Margin="81.667,167.003,0,0" TextWrapping="Wrap" Text="Speed Boost" VerticalAlignment="Top" Width="94" FontFamily="Montserrat" FontWeight="Light" FontSize="14"/>
+                <Rectangle HorizontalAlignment="Left" Height="21.217" Margin="52.334,162.098,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.448,0.249">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="boost.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                    <Rectangle.Stroke>
+                        <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
+                    </Rectangle.Stroke>
+                </Rectangle>
+                <TextBlock HorizontalAlignment="Left" Height="18.728" Margin="61.334,207.642,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF379EBF" TextTrimming="WordEllipsis" FontStretch="UltraExpanded" Text="Faster preformance"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="50.001,242.67,0,0" TextWrapping="Wrap" Text="10BG / optimized 2 apps" VerticalAlignment="Top" Width="147.666" FontFamily="Montserrat Light"/>
+                <Button Content="BOOST" HorizontalAlignment="Left" Height="38" Margin="52.334,279.003,0,0" VerticalAlignment="Top" Width="145.333" BorderBrush="{x:Null}" Foreground="#FFF7F5F5" FontFamily="Montserrat" FontSize="11">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF379EBF" Offset="0"/>
+                            <GradientStop Color="#FF54B9D8" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF202020" ShadowDepth="8" BlurRadius="39" Opacity="0.235" Direction="-92"/>
+                    </Button.Effect>
+                </Button>
+
+
+            </Grid>
+            <Grid x:Name="Clean_Card" Margin="511,0,19.001,174">
+                <Border  HorizontalAlignment="Left" Height="337" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="19,0,-19,0">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
+                    </Border.Effect>
+                    <StackPanel Orientation="Horizontal" Margin="60,28,30,188">
+                        <hc:WaveProgressBar Value="60" FontSize="20" Margin="16,9.04,0,28.04" WaveThickness="4"  Background="#BF933D" BorderBrush="{x:Null}" Width="84">
+                            <hc:WaveProgressBar.WaveFill>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#E4B55D" Offset="0"/>
+                                    <GradientStop Color="#BF933D" Offset="1"/>
+                                </LinearGradientBrush>
+                            </hc:WaveProgressBar.WaveFill>
+                        </hc:WaveProgressBar>
+                    </StackPanel>
+                </Border>
+                <hc:CircleProgressBar Value="60" HorizontalAlignment="Left" Height="120" Margin="77.667,18,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Background="#FFD7A951" Foreground="#FFF3F1F1"/>
+                <TextBlock HorizontalAlignment="Left" Height="20.252" Margin="94.667,167.917,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" FontFamily="Montserrat" FontWeight="Light" FontSize="14"><Run Text="File "/><Run Text="Cle"/><Run Text="aner"/></TextBlock>
+                <Rectangle HorizontalAlignment="Left" Height="21.217" Margin="59.001,161.783,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.448,0.249">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="broom.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                    <Rectangle.Stroke>
+                        <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
+                    </Rectangle.Stroke>
+                </Rectangle>
+                <TextBlock HorizontalAlignment="Left" Height="18.728" Margin="83.334,209.642,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105.333" Foreground="#FFCC9F49" TextTrimming="WordEllipsis" FontStretch="UltraExpanded" Text="2.5 GB Junk files"/>
+                <TextBlock HorizontalAlignment="Left" Height="22" Margin="59.001,242.67,0,0" TextWrapping="Wrap" Text="Cache Free up memory" VerticalAlignment="Top" Width="147.666" FontFamily="Montserrat Light"/>
+                <Button Content="Clean" HorizontalAlignment="Left" Height="38" Margin="61.334,278.003,0,0" VerticalAlignment="Top" Width="145.333" BorderBrush="{x:Null}" Foreground="#FFF7F5F5" FontFamily="Montserrat" FontSize="11">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFE4B55D" Offset="0"/>
+                            <GradientStop Color="#FFBF933D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF202020" ShadowDepth="8" BlurRadius="39" Opacity="0.235" Direction="-92"/>
+                    </Button.Effect>
+                </Button>
+
+
+            </Grid>
+            <Grid x:Name="footerTools_item1" Margin="0,379.997,530.001,0">
+                <Border  HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="0,13.003,0,0">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
+                    </Border.Effect>
+                </Border>
+                <Ellipse HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" RenderTransformOrigin="-0.143,0.179" Margin="192.24,0,0,0">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF2C9184" Offset="0"/>
+                            <GradientStop Color="#FF41938A" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Rectangle HorizontalAlignment="Left" Height="18.333" Margin="38.167,42.837,0,0" VerticalAlignment="Top" Width="18.666">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="fix.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock HorizontalAlignment="Left" Height="15.997" Margin="201.5,4.503,0,0" TextWrapping="Wrap" Text="!" VerticalAlignment="Top" Width="9.5" TextAlignment="Center" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Height="19.333" Margin="72.667,42.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120.667"><Run Foreground="#FF399288" Text="0"/><Run Text=" "/><Run Text=" "/><Run FontFamily="Montserrat Light" Text="Problems found"/></TextBlock>
+                <Border BorderThickness="1" HorizontalAlignment="Left" Height="27" Margin="53.667,80.003,0,0" VerticalAlignment="Top" Width="125.167" CornerRadius="12" Background="#FF399288">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
+                    </Border.Effect>
+                    <TextBlock HorizontalAlignment="Left" Height="17" Margin="25.667,4.5,0,0" TextWrapping="Wrap" Text="Fix Problems" VerticalAlignment="Top" Width="88.5" FontSize="11" FontFamily="Montserrat"/>
+                </Border>
+
+
+            </Grid>
+            <Grid x:Name="footerTools_item2" Margin="265,379.997,265.001,0">
+                <Border  HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="0,13.003,0,0">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
+                    </Border.Effect>
+                </Border>
+                <Rectangle HorizontalAlignment="Left" Height="18.333" Margin="38.167,42.837,0,0" VerticalAlignment="Top" Width="18.666">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock HorizontalAlignment="Left" Height="32.666" Margin="72.667,42.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120.667" Text="Virus, threat protection" FontFamily="Montserrat Light"/>
+                <TextBlock HorizontalAlignment="Left" Height="16.667" Margin="43.667,97.003,0,0" TextWrapping="Wrap" Text="No action needed" VerticalAlignment="Top" Width="114.666" FontFamily="Montserrat Light" Foreground="#FF57CDC0"/>
+
+
+            </Grid>
+            <Grid x:Name="footerTools_item3" Margin="530.001,379.997,0,0">
+                <Border  HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="0,13.003,0,0">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
+                    </Border.Effect>
+                </Border>
+                <Rectangle HorizontalAlignment="Left" Height="18.333" Margin="38.167,42.837,0,0" VerticalAlignment="Top" Width="18.666">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock HorizontalAlignment="Left" Height="32.666" Margin="72.667,42.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120.667" Text="Firewall &amp; network Protection" FontFamily="Montserrat Light"/>
+                <TextBlock HorizontalAlignment="Left" Height="16.667" Margin="43.667,97.003,0,0" TextWrapping="Wrap" Text="No action needed" VerticalAlignment="Top" Width="114.666" FontFamily="Montserrat Light" Foreground="#FF57CDC0"/>
+
+
+            </Grid>
 
 
         </Grid>
-        <Grid x:Name="Boost_Card" Grid.Column="6" Margin="431,44.345,273,173.003" Grid.Row="5">
-            <Border  HorizontalAlignment="Left" Height="337" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="10,0,-10,0">
-                <StackPanel Orientation="Horizontal" Margin="54,27.003,36,188.997">
-                    <hc:WaveProgressBar Value="30" FontSize="20" Margin="16,9.04,0,28.04" WaveThickness="4"  Background="#379EBF" BorderBrush="{x:Null}" Width="84">
-                        <hc:WaveProgressBar.WaveFill>
-                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                <GradientStop Color="#59BEDD" Offset="0"/>
-                                <GradientStop Color="#379EBF" Offset="1"/>
-                            </LinearGradientBrush>
-                        </hc:WaveProgressBar.WaveFill>
-                    </hc:WaveProgressBar>
-                </StackPanel>
-                <Border.Effect>
-                    <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
-                </Border.Effect>
-            </Border>
-            <hc:CircleProgressBar Value="30" HorizontalAlignment="Left" Height="120" Margin="61.334,17.003,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Background="#FF29809C" Foreground="#FFF3F1F1"/>
-            <TextBlock HorizontalAlignment="Left" Height="20.252" Margin="81.667,167.003,0,0" TextWrapping="Wrap" Text="Speed Boost" VerticalAlignment="Top" Width="94" FontFamily="Montserrat" FontWeight="Light" FontSize="14"/>
-            <Rectangle HorizontalAlignment="Left" Height="21.217" Margin="52.334,162.098,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.448,0.249">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="boost.png" Stretch="Uniform"/>
-                </Rectangle.Fill>
-                <Rectangle.Stroke>
-                    <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
-                </Rectangle.Stroke>
+        <Grid x:Name="ScanLayout" Grid.Column="6" Margin="177,54.582,16,0" Grid.Row="2" Grid.RowSpan="4">
+            <TextBlock x:Name="JunkCleaner" HorizontalAlignment="Left" Height="36.353" Margin="15.74,0,0,0" TextWrapping="Wrap" Text="Junk Cleaner" VerticalAlignment="Top" Width="251.26" FontSize="30" RenderTransformOrigin="0.5,0.5" FontWeight="Medium">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="-0.258"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-0.496"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Height="19.586" Margin="15.74,44.418,0,0" TextWrapping="Wrap" Text="Clean your pc to make it run faster" VerticalAlignment="Top" Width="239.26" FontFamily="Montserrat Light" FontSize="14"/>
+            <Rectangle x:Name="ScanBtn" Fill="#FF349F92" HorizontalAlignment="Left" Height="43.348" Margin="535.75,1.07,0,0" VerticalAlignment="Top" Width="144.5" RadiusY="20.5" RadiusX="20.5">
+                <Rectangle.Effect>
+                    <DropShadowEffect Opacity="0.15" BlurRadius="16"/>
+                </Rectangle.Effect>
             </Rectangle>
-            <TextBlock HorizontalAlignment="Left" Height="18.728" Margin="61.334,207.642,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF379EBF" TextTrimming="WordEllipsis" FontStretch="UltraExpanded" Text="Faster preformance"/>
-            <TextBlock HorizontalAlignment="Left" Height="22" Margin="50.001,242.67,0,0" TextWrapping="Wrap" Text="10BG / optimized 2 apps" VerticalAlignment="Top" Width="147.666" FontFamily="Montserrat Light"/>
-            <Button Content="BOOST" HorizontalAlignment="Left" Height="38" Margin="52.334,279.003,0,0" VerticalAlignment="Top" Width="145.333" BorderBrush="{x:Null}" Foreground="#FFF7F5F5" FontFamily="Montserrat" FontSize="11">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF379EBF" Offset="0"/>
-                        <GradientStop Color="#FF54B9D8" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-                <Button.Effect>
-                    <DropShadowEffect Color="#FF202020" ShadowDepth="8" BlurRadius="39" Opacity="0.235" Direction="-92"/>
-                </Button.Effect>
-            </Button>
+            <TextBlock x:Name="SCANTXT" HorizontalAlignment="Left" Height="20.5" Margin="565.75,9.962,0,0" TextWrapping="Wrap" Text="SCAN" VerticalAlignment="Top" Width="87.25" FontSize="20" TextAlignment="Center" FontWeight="Medium"/>
+            <Rectangle x:Name="broom" HorizontalAlignment="Left" Height="467.003" Margin="393,88.415,0,0" RadiusY="20.5" RadiusX="20.5" VerticalAlignment="Top" Width="354">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Cleaning Broom-01.png" Stretch="UniformToFill"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Grid x:Name="LastScanCard" Margin="0,165.418,511,251">
+                <Rectangle Fill="#FF464A53" HorizontalAlignment="Left" Height="139" RadiusY="20.5" RadiusX="20.5" VerticalAlignment="Top" Width="236">
+                    <Rectangle.Effect>
+                        <DropShadowEffect Opacity="0.15" BlurRadius="16"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <TextBlock HorizontalAlignment="Left" Height="26.67" Margin="62,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" TextAlignment="Center" FontSize="22"><Run Text="L"/><Run Text="ast Scan "/></TextBlock>
+                <TextBlock x:Name="LastScanDate" HorizontalAlignment="Left" Height="26.67" Margin="19,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" TextAlignment="Center" FontSize="22" Text="Today" FontFamily="Montserrat Light" Foreground="#FF59BEDD"/>
+            </Grid>
+            <Grid x:Name="LastCleanCard" Margin="267,165.418,244,251">
+                <Rectangle Fill="#FF464A53" HorizontalAlignment="Left" Height="139" RadiusY="20.5" RadiusX="20.5" VerticalAlignment="Top" Width="236">
+                    <Rectangle.Effect>
+                        <DropShadowEffect Opacity="0.15" BlurRadius="16"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <TextBlock HorizontalAlignment="Left" Height="26.67" Margin="53.594,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="121.812" TextAlignment="Center" FontSize="22"><Run Text="L"/><Run Text="ast "/><Run Text="Cle"/><Run Text="an "/></TextBlock>
+                <TextBlock x:Name="LastCleanDate" HorizontalAlignment="Left" Height="26.67" Margin="18,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" TextAlignment="Center" FontSize="22" Text="YEASTERDAY" FontFamily="Montserrat Light" Foreground="#FF59BEDD"/>
+            </Grid>
 
 
         </Grid>
-        <Grid x:Name="Clean_Card" Grid.Column="6" Margin="687,43.348,17,174" Grid.Row="5">
-            <Border  HorizontalAlignment="Left" Height="337" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="19,0,-19,0">
-                <StackPanel Orientation="Horizontal" Margin="60,28,30,188">
-                    <hc:WaveProgressBar Value="60" FontSize="20" Margin="16,9.04,0,28.04" WaveThickness="4"  Background="#BF933D" BorderBrush="{x:Null}" Width="84">
-                        <hc:WaveProgressBar.WaveFill>
-                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                <GradientStop Color="#E4B55D" Offset="0"/>
-                                <GradientStop Color="#BF933D" Offset="1"/>
-                            </LinearGradientBrush>
-                        </hc:WaveProgressBar.WaveFill>
-                    </hc:WaveProgressBar>
-                </StackPanel>
-                <Border.Effect>
-                    <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
-                </Border.Effect>
-            </Border>
-            <hc:CircleProgressBar Value="60" HorizontalAlignment="Left" Height="120" Margin="77.667,18,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Background="#FFD7A951" Foreground="#FFF3F1F1"/>
-            <TextBlock HorizontalAlignment="Left" Height="20.252" Margin="94.667,167.917,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" FontFamily="Montserrat" FontWeight="Light" FontSize="14"><Run Text="File "/><Run Text="Cle"/><Run Text="aner"/></TextBlock>
-            <Rectangle HorizontalAlignment="Left" Height="21.217" Margin="59.001,161.783,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.448,0.249">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="broom.png" Stretch="Uniform"/>
-                </Rectangle.Fill>
-                <Rectangle.Stroke>
-                    <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
-                </Rectangle.Stroke>
+        <Grid x:Name="ResultOfScan" Margin="177,95.348,429,136" Grid.Row="5" Grid.Column="6" Visibility="Hidden">
+            <Grid x:Name="WindowsResult" Margin="1,0,0,289">
+                <Rectangle x:Name="WinIcon" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="windows.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="Windows" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" Text="Windows" VerticalAlignment="Top" Width="147" FontSize="25"/>
+                <TextBlock x:Name="WinfilesSize" HorizontalAlignment="Left" Height="28" Margin="264,6,-36,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" FontSize="24" Foreground="#FFE8C073"><Run Text="0 GB"/></TextBlock>
+                <Rectangle x:Name="Saperator" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
+
+
+            </Grid>
+            <Grid x:Name="BrowsersResult" Margin="1,97,0,192">
+                <Rectangle x:Name="BrowIcon" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="browser.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="Browsers" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" Text="Browsers" VerticalAlignment="Top" Width="147" FontSize="25"/>
+                <TextBlock x:Name="BrowserfilesSize" HorizontalAlignment="Left" Height="28" Margin="264,6,-39,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" FontSize="24" Foreground="#FFE8C073"><Run Text="0 GB"/></TextBlock>
+                <Rectangle x:Name="Saperator1" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
+
+
+            </Grid>
+            <Grid x:Name="SoftwareResult" Margin="0,192,1,97">
+                <Rectangle x:Name="SoftIcon" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="setting.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="Softwares" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" FontSize="25"><Run Text="Software"/><Run Text="s"/></TextBlock>
+                <TextBlock x:Name="SoftwarefilesSize" HorizontalAlignment="Left" Height="28" Margin="264,6,-47,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" FontSize="24" Foreground="#FFE8C073"><Run Text="0 GB"/></TextBlock>
+                <Rectangle x:Name="Saperator2" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
+
+
+            </Grid>
+            <Grid x:Name="MultimediaResult" Margin="1,289,0,0">
+                <Rectangle x:Name="MultimIcon2" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="video-player.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="Multimedia" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" Text="Multimedia" VerticalAlignment="Top" Width="147" FontSize="25"/>
+                <TextBlock x:Name="MultimediafilesSize2" HorizontalAlignment="Left" Height="28" Margin="264,6,-53,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontSize="24" Foreground="#FFE8C073"><Run Text="0 GB"/></TextBlock>
+                <Rectangle x:Name="Saperator3" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
+
+
+            </Grid>
+            <TextBlock x:Name="Rescan" HorizontalAlignment="Left" Height="20.462" Margin="441,-82.462,-166,0" TextWrapping="Wrap" Text="Rescan" VerticalAlignment="Top" Width="59" Foreground="#FF59BEDD" FontSize="16" FontFamily="Montserrat Light"/>
+            <Rectangle x:Name="CleanBtn" Fill="#FF349F92" HorizontalAlignment="Left" Height="43.348" Margin="534.75,-91.012,-345.25,0" VerticalAlignment="Top" Width="144.5" RadiusY="20.5" RadiusX="20.5">
+                <Rectangle.Effect>
+                    <DropShadowEffect Opacity="0.15" BlurRadius="16"/>
+                </Rectangle.Effect>
             </Rectangle>
-            <TextBlock HorizontalAlignment="Left" Height="18.728" Margin="83.334,209.642,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105.333" Foreground="#FF379EBF" TextTrimming="WordEllipsis" FontStretch="UltraExpanded" Text="2.5 GB Junk files"/>
-            <TextBlock HorizontalAlignment="Left" Height="22" Margin="59.001,242.67,0,0" TextWrapping="Wrap" Text="Cache Free up memory" VerticalAlignment="Top" Width="147.666" FontFamily="Montserrat Light"/>
-            <Button Content="Clean" HorizontalAlignment="Left" Height="38" Margin="61.334,278.003,0,0" VerticalAlignment="Top" Width="145.333" BorderBrush="{x:Null}" Foreground="#FFF7F5F5" FontFamily="Montserrat" FontSize="11">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFE4B55D" Offset="0"/>
-                        <GradientStop Color="#FFBF933D" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-                <Button.Effect>
-                    <DropShadowEffect Color="#FF202020" ShadowDepth="8" BlurRadius="39" Opacity="0.235" Direction="-92"/>
-                </Button.Effect>
-            </Button>
-
-
-        </Grid>
-        <Grid x:Name="footerTools_item1" Grid.Column="6" Margin="176,423.345,528,0" Grid.Row="5">
-            <Border  HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="0,13.003,0,0">
-                <Border.Effect>
-                    <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
-                </Border.Effect>
-            </Border>    
-            <Ellipse HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="28" RenderTransformOrigin="-0.143,0.179" Margin="192.24,0,0,0">
-                <Ellipse.Fill>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF2C9184" Offset="0"/>
-                        <GradientStop Color="#FF41938A" Offset="1"/>
-                    </LinearGradientBrush>
-                </Ellipse.Fill>
-            </Ellipse>
-            <Rectangle HorizontalAlignment="Left" Height="18.333" Margin="38.167,42.837,0,0" VerticalAlignment="Top" Width="18.666">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="fix.png" Stretch="Uniform"/>
-                </Rectangle.Fill>
-            </Rectangle>
-            <TextBlock HorizontalAlignment="Left" Height="15.997" Margin="201.5,4.503,0,0" TextWrapping="Wrap" Text="!" VerticalAlignment="Top" Width="9.5" TextAlignment="Center" FontSize="14"/>
-            <TextBlock HorizontalAlignment="Left" Height="19.333" Margin="72.667,42.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120.667"><Run Foreground="#FF399288" Text="0"/><Run Text=" "/><Run Text=" "/><Run FontFamily="Montserrat Light" Text="Problems found"/></TextBlock>
-            <Border BorderThickness="1" HorizontalAlignment="Left" Height="27" Margin="53.667,80.003,0,0" VerticalAlignment="Top" Width="125.167" CornerRadius="12" Background="#FF399288">
-                <Border.Effect>
-                    <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
-                </Border.Effect>
-                <TextBlock HorizontalAlignment="Left" Height="17" Margin="25.667,4.5,0,0" TextWrapping="Wrap" Text="Fix Problems" VerticalAlignment="Top" Width="88.5" FontSize="11" FontFamily="Montserrat"/>
-            </Border>
-
-
-        </Grid>
-        <Grid x:Name="footerTools_item2" Grid.Column="6" Margin="441,423.345,263,0" Grid.Row="5">
-            <Border  HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="0,13.003,0,0">
-                <Border.Effect>
-                    <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
-                </Border.Effect>
-            </Border>
-            <Rectangle HorizontalAlignment="Left" Height="18.333" Margin="38.167,42.837,0,0" VerticalAlignment="Top" Width="18.666">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
-                </Rectangle.Fill>
-            </Rectangle>
-            <TextBlock HorizontalAlignment="Left" Height="32.666" Margin="72.667,42.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120.667" Text="Virus, threat protection" FontFamily="Montserrat Light"/>
-            <TextBlock HorizontalAlignment="Left" Height="16.667" Margin="43.667,97.003,0,0" TextWrapping="Wrap" Text="No action needed" VerticalAlignment="Top" Width="114.666" FontFamily="Montserrat Light" Foreground="#FF57CDC0"/>
-
-
-        </Grid>
-        <Grid x:Name="footerTools_item3" Grid.Column="6" Margin="706.001,423.345,17.999,0" Grid.Row="5" Grid.ColumnSpan="2">
-            <Border  HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10" Margin="0,13.003,0,0">
-                <Border.Effect>
-                    <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
-                </Border.Effect> 
-            </Border>
-            <Rectangle HorizontalAlignment="Left" Height="18.333" Margin="38.167,42.837,0,0" VerticalAlignment="Top" Width="18.666">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
-                </Rectangle.Fill>
-            </Rectangle>
-            <TextBlock HorizontalAlignment="Left" Height="32.666" Margin="72.667,42.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120.667" Text="Firewall &amp; network Protection" FontFamily="Montserrat Light"/>
-            <TextBlock HorizontalAlignment="Left" Height="16.667" Margin="43.667,97.003,0,0" TextWrapping="Wrap" Text="No action needed" VerticalAlignment="Top" Width="114.666" FontFamily="Montserrat Light" Foreground="#FF57CDC0"/>
+            <TextBlock x:Name="ClEANTXT" HorizontalAlignment="Left" Height="20.5" Margin="564.75,-82.12,-318,0" TextWrapping="Wrap" Text="SCAN" VerticalAlignment="Top" Width="87.25" FontSize="20" TextAlignment="Center" FontWeight="Medium"/>
 
 
         </Grid>
