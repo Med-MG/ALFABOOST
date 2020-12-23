@@ -605,7 +605,7 @@
         <Grid x:Name="Scan_Card" Grid.Column="6" Margin="176,44.345,528,173.003" Grid.Row="5">
             <Border  HorizontalAlignment="Left" Height="337" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10">
                 <StackPanel Orientation="Horizontal" Margin="63,28,27,178">
-                    <hc:WaveProgressBar Value="50" FontSize="20" Margin="16,9.04,0,28.04" WaveThickness="4"  Background="#FF206F65" BorderBrush="{x:Null}" Width="84">
+                    <hc:WaveProgressBar x:Name="WaveProgress" Maximum="100" Value="0" FontSize="20" Margin="16,9.04,0,28.04" WaveThickness="4"  Background="#FF206F65" BorderBrush="{x:Null}" Width="84">
                         <hc:WaveProgressBar.WaveFill>
                             <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                                 <GradientStop Color="#FF4A9C94" Offset="0"/>
@@ -618,7 +618,7 @@
                     <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
                 </Border.Effect>
             </Border>
-            <hc:CircleProgressBar Value="50" HorizontalAlignment="Left" Height="120" Margin="61.334,19.239,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Background="#FF299083" Foreground="#FFF3F1F1"/>
+            <hc:CircleProgressBar x:Name="ScanCircle" Maximum="100" Value="0" HorizontalAlignment="Left" Height="120" Margin="61.334,19.239,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Background="#FF299083" Foreground="#FFF3F1F1"/>
             <TextBlock HorizontalAlignment="Left" Height="20.252" Margin="82.667,167.003,0,0" TextWrapping="Wrap" Text="Smart Scan" VerticalAlignment="Top" Width="85" FontFamily="Montserrat" FontWeight="Light" FontSize="14"/>
             <Rectangle HorizontalAlignment="Left" Height="18.645" Margin="52.334,164.61,0,0" VerticalAlignment="Top" Width="19.333" RenderTransformOrigin="0.448,0.249">
                 <Rectangle.Fill>
@@ -630,7 +630,7 @@
             </Rectangle>
             <TextBlock HorizontalAlignment="Left" Height="18" Margin="61.334,208.006,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115.333" Foreground="#FF4A9C94" TextTrimming="WordEllipsis" FontStretch="UltraExpanded"><Run Text="Real"/><Run Text="-"/><Run Text="time enabled"/></TextBlock>
             <TextBlock HorizontalAlignment="Left" Height="22" Margin="41.334,242.003,0,0" TextWrapping="Wrap" Text="Looking for system junk ..." VerticalAlignment="Top" Width="156.333" FontFamily="Montserrat Light"/>
-            <Button Content="START SCAN" HorizontalAlignment="Left" Height="38" Margin="52.334,279.003,0,0" VerticalAlignment="Top" Width="145.333" BorderBrush="{x:Null}" FontFamily="Montserrat" FontSize="11" Foreground="#FFF7F5F5">
+            <Button Content="START SCAN" HorizontalAlignment="Left" Height="38" Margin="52.334,279.003,0,0" VerticalAlignment="Top" Width="145.333" BorderBrush="{x:Null}" FontFamily="Montserrat" FontSize="11" Foreground="#FFF7F5F5" Click="StartScan" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF299083" Offset="0"/>
