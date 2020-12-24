@@ -464,6 +464,33 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="CloseCleanerProgress">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DashboardLayout">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ScanLayout">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="HistoryResult">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ResultOfScan">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="CleaningProg">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ResultOfScan">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CleaningProg">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="Close_X">
@@ -694,6 +721,8 @@
                 </Rectangle.Fill>
             </Rectangle>
             <Button x:Name="Update" Content="Update    " HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Background="#00000000" Foreground="White" BorderBrush="{x:Null}" FontFamily="Montserrat Light"/>
+            <Ellipse HorizontalAlignment="Left" Height="18" Margin="140,13.922,0,0" VerticalAlignment="Top" Width="18" Fill="#FF299083"/>
+            <TextBlock HorizontalAlignment="Left" Height="13.871" Margin="145.092,16.131,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="8.574" FontSize="10"/>
 
         </Grid>
         <Grid x:Name="DashboardLayout" Grid.ColumnSpan="2" Grid.Column="6" Margin="176,43.348,17.999,0" Grid.Row="5" Visibility="Visible">
@@ -812,7 +841,7 @@
                         <ImageBrush ImageSource="verified.png" Stretch="Uniform"/>
                     </Rectangle.Stroke>
                 </Rectangle>
-                <TextBlock HorizontalAlignment="Left" Height="18.728" Margin="83.334,209.642,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105.333" Foreground="#FFCC9F49" TextTrimming="WordEllipsis" FontStretch="UltraExpanded" Text="2.5 GB Junk files"/>
+                <TextBlock HorizontalAlignment="Left" Height="18.728" Margin="83.334,209.642,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105.333" Foreground="#FFCC9F49" TextTrimming="WordEllipsis" FontStretch="UltraExpanded" Text="45 GB Junk files"/>
                 <TextBlock HorizontalAlignment="Left" Height="22" Margin="59.001,242.67,0,0" TextWrapping="Wrap" Text="Cache Free up memory" VerticalAlignment="Top" Width="147.666" FontFamily="Montserrat Light"/>
                 <Button Content="Clean" HorizontalAlignment="Left" Height="38" Margin="61.334,278.003,0,0" VerticalAlignment="Top" Width="145.333" BorderBrush="{x:Null}" Foreground="#FFF7F5F5" FontFamily="Montserrat" FontSize="11">
                     <Button.Background>
@@ -910,7 +939,6 @@
                     <DropShadowEffect Opacity="0.15" BlurRadius="16"/>
                 </Rectangle.Effect>
             </Rectangle>
-            <TextBlock x:Name="SCANTXT" HorizontalAlignment="Left" Height="20.5" Margin="565.75,9.962,0,0" TextWrapping="Wrap" Text="SCAN" VerticalAlignment="Top" Width="87.25" FontSize="20" TextAlignment="Center" FontWeight="Medium"/>
             <Rectangle x:Name="broom" HorizontalAlignment="Left" Height="467.003" Margin="393,88.415,0,0" RadiusY="20.5" RadiusX="20.5" VerticalAlignment="Top" Width="354">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="Cleaning Broom-01.png" Stretch="UniformToFill"/>
@@ -934,6 +962,7 @@
                 <TextBlock HorizontalAlignment="Left" Height="26.67" Margin="53.594,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="121.812" TextAlignment="Center" FontSize="22"><Run Text="L"/><Run Text="ast "/><Run Text="Cle"/><Run Text="an "/></TextBlock>
                 <TextBlock x:Name="LastCleanDate" HorizontalAlignment="Left" Height="26.67" Margin="18,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" TextAlignment="Center" FontSize="22" Text="YEASTERDAY" FontFamily="Montserrat Light" Foreground="#FF59BEDD"/>
             </Grid>
+            <Button x:Name="ScanBtnn" Content="SCAN" HorizontalAlignment="Left" Height="47.012" Margin="539,-2.594,0,0" VerticalAlignment="Top" Width="136" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="18"/>
 
 
         </Grid>
@@ -1065,7 +1094,7 @@
                     <DropShadowEffect Opacity="0.15" BlurRadius="16"/>
                 </Rectangle.Effect>
             </Rectangle>
-            <TextBlock x:Name="ClEANTXT" HorizontalAlignment="Left" Height="20.5" Margin="561.749,-83.499,-314.999,0" TextWrapping="Wrap" Text="Clean" VerticalAlignment="Top" Width="87.25" FontSize="20" TextAlignment="Center" FontWeight="Medium"/>
+            <Button x:Name="CleanBtnStart" Content="CLEAN" HorizontalAlignment="Left" Height="47.012" Margin="539,-94.676,-341,0" VerticalAlignment="Top" Width="136" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="18" Click="StartClean" />
             <TextBlock x:Name="ResutFullSize" HorizontalAlignment="Left" Height="36.353" Margin="14.74,-96.418,0,0" TextWrapping="Wrap" Text="0.0 GB" VerticalAlignment="Top" Width="251.26" FontSize="30" RenderTransformOrigin="0.5,0.5" FontWeight="Medium">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
@@ -1076,7 +1105,7 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock x:Name="ScanSubtext" HorizontalAlignment="Left" Height="19.586" Margin="14.74,-52,-65.334,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="384.594" FontFamily="Montserrat Light" FontSize="14"><Run Text="Scan"/><Run Text="ning Complete "/><Run x:Name="subSize" Foreground="#FF4ECDBD" FontWeight="Medium" FontFamily="Montserrat" Text="0.0 GB "/><Run Text="of junk found"/></TextBlock>
+            <TextBlock x:Name="ScanSubtext" HorizontalAlignment="Left" Height="19.586" Margin="14.74,-52,-129.334,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448.594" FontFamily="Montserrat Light" FontSize="14"><Run Text="Scan"/><Run Text="ning Complete "/><Run x:Name="subSize" Foreground="#FF4ECDBD" FontWeight="Medium" FontFamily="Montserrat" Text="0.0 GB "/><Run Text="  "/><Run Text="of junk "/><Run Text="Files F"/><Run Text="ound"/></TextBlock>
 
 
         </Grid>

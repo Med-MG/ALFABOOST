@@ -107,28 +107,35 @@ namespace ALFABOOST
 
 
 
+            
+
+
 
             try
             {
+                
 
                 foreach (var DirPaths in DirTypesPaths)
                 {
                     double currentSize = 0;
                     
                     var dirInfo = new DirectoryInfo(DirPaths.Value);
+                    
                     foreach (FileInfo fi in dirInfo.GetFiles("*", SearchOption.AllDirectories))
                     {
                        
                         FullSize += fi.Length;
                         currentSize += fi.Length;
+                       
+                        
 
-                        //Display Files paths in UI
                     }
-                    (sender as BackgroundWorker).ReportProgress(count+=25);
-                    Thread.Sleep(100);
+                    (sender as BackgroundWorker).ReportProgress(count += 25);
+                    Thread.Sleep(3500);
+
                     DirTypesSizes.Add(currentSize);
                 }
-
+               
                 DirTypesSizes.Add(FullSize);
 
                 
@@ -159,13 +166,14 @@ namespace ALFABOOST
                 Cleaner_Layout_Display();
 
                 //Display result
+                int FilesCount = Directory.GetFiles(@"C:\Users\Administrateur\Downloads\Production\YoucodeC#\WPF\FilesToClean\del\", "*", SearchOption.AllDirectories).Length;
 
                 WinfilesSize.Text = SizeCalculator.ToFileSize(DirTypesSizes[0]);
                 BrowserfilesSize.Text = SizeCalculator.ToFileSize(DirTypesSizes[1]);
                 SoftwarefilesSize.Text = SizeCalculator.ToFileSize(DirTypesSizes[2]);
                 MultimediafilesSize2.Text = SizeCalculator.ToFileSize(DirTypesSizes[3]);
                 ResutFullSize.Text = SizeCalculator.ToFileSize(DirTypesSizes[4]);
-                subSize.Text = SizeCalculator.ToFileSize(DirTypesSizes[4]);
+                subSize.Text = Convert.ToString(FilesCount);
             });
 
            
@@ -237,15 +245,22 @@ namespace ALFABOOST
         {
             if (_ModeClean)
             {
-                //Invoke Sotyboard Of cleaner
-                Storyboard sbClean = this.FindResource("DisplayClean") as Storyboard;
-                sbClean.Begin();
+                this.Dispatcher.Invoke(() =>
+                {
+                    //Invoke Sotyboard Of cleaner
+                    Storyboard sbClean = this.FindResource("DisplayClean") as Storyboard;
+                    sbClean.Begin();
+                });
             }
             else if (!_ModeClean)
             {
+                this.Dispatcher.Invoke(() =>
+                { 
                 //Invoke Sotyboard Of cleaner
-                Storyboard sbScan = this.FindResource("DisplaySCANL") as Storyboard;
-                sbScan.Begin();
+                    Storyboard sbScan = this.FindResource("DisplaySCANL") as Storyboard;
+                    sbScan.Begin();
+                });
+                    
             }
         }
 
@@ -268,7 +283,7 @@ namespace ALFABOOST
             Storyboard sbCleanProg = this.FindResource("CleanerProgressStart") as Storyboard;
             sbCleanProg.Begin();
 
-            Add_Current_Clean_Date();
+            Add_Current_Clean_History();
             BackgroundWorker worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
             worker.DoWork += Clean;
@@ -285,23 +300,56 @@ namespace ALFABOOST
 
         void Clean(object sender, DoWorkEventArgs e)
         {
-            for (int i = 0; i < 100; i++)
+            //int count = 0;
+            var MaindirInfo = new DirectoryInfo(@"C:\Users\Administrateur\Downloads\Production\YoucodeC#\WPF\FilesToClean\del\");
+            //int FilesCount = MaindirInfo.GetFiles("*", SearchOption.AllDirectories).Length;
+            foreach (FileInfo fi in MaindirInfo.GetFiles("*", SearchOption.AllDirectories))
+            {
+
+                //fi.Delete();
+                //(sender as BackgroundWorker).ReportProgress(count += (100/ FilesCount));
+                //Thread.Sleep(100);
+
+
+            }
+            for (int i = 0; i <= 100; i++)
             {
                 (sender as BackgroundWorker).ReportProgress(i);
                 Thread.Sleep(100);
             }
+
+
+            this.Dispatcher.Invoke(() =>
+            {
+                //Invoke Sotyboard Of cleaner
+                Storyboard CleanDone = this.FindResource("CloseCleanerProgress") as Storyboard;
+                CleanDone.Begin();
+                //Reset Results
+                WinfilesSize.Text = "0.0 MB";
+                BrowserfilesSize.Text = "0.0 MB";
+                SoftwarefilesSize.Text = "0.0 MB";
+                MultimediafilesSize2.Text = "0.0 MB";
+                ResutFullSize.Text = "0.0 GB";
+                subSize.Text = "0";
+                WaveProgress.Value = 0;
+                ScanCircle.Value = 0;
+            });
+
         }
 
-        void Add_Current_Clean_Date()
+        
+
+        void Add_Current_Clean_History()
         {
             var hist = populate_History_Object();
             DateTime now = DateTime.Now;
             hist.lastClean = Convert.ToString(now);
-            hist.numOfScans = Convert.ToString(Convert.ToInt32(hist.numOfClean ) + 1);
-            hist.gained = Convert.ToString(Convert.ToDouble(hist.gained) + FullSize);
+            hist.numOfClean = Convert.ToString(Convert.ToInt32(hist.numOfClean ) + 1);
+            hist.gained = Convert.ToString(SizeCalculator.ToFileSize(FullSize));
             string newHistory = Newtonsoft.Json.JsonConvert.SerializeObject(hist);
             File.WriteAllText(@"C:\Users\Administrateur\source\repos\ALFABOOST\ALFABOOST\History.json", newHistory);
 
         }
+
     }
 }
