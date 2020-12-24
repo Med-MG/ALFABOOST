@@ -60,6 +60,7 @@ namespace ALFABOOST
 
         private void StartScan(object sender, RoutedEventArgs e)
         {
+            Add_Current_Scan_Date();
             BackgroundWorker worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
             worker.DoWork += Analyze;
@@ -172,19 +173,54 @@ namespace ALFABOOST
 
 
 
+
+        /*
+         *Method to get Current SCan date
+         *
+         */
+        void Add_Current_Scan_Date()
+        {
+            var hist = populate_History_Object();
+            DateTime now = DateTime.Now;
+            hist.lastScan = Convert.ToString(now);
+            hist.numOfScans = Convert.ToString(Convert.ToInt32(hist.numOfScans) + 1);
+            string newHistory = Newtonsoft.Json.JsonConvert.SerializeObject(hist);
+            File.WriteAllText(@"C:\Users\Administrateur\source\repos\ALFABOOST\ALFABOOST\History.json", newHistory);
+            
+        }
+
         /*
          * History
          * Desentrelize Json File "hisroty" and display data
          * 
          */
 
-        void DisplayHistory()
-        {
-            string historyData = File.ReadAllText("history.json");
-            History hist = new History();
+        
+       
 
-            Newtonsoft.Json.JsonConvert.PopulateObject(historyData, hist);
+        private void Display_History(object sender, EventArgs e)
+        {
+
+            var hist = populate_History_Object();
+            
+            LastScanDate1.Text = hist.ToTimeSinceString(Convert.ToDateTime(hist.lastScan));
+            LastCleanDate1.Text = hist.ToTimeSinceString(Convert.ToDateTime(hist.lastClean));
+            GainedSize.Text = hist.gained;
+            NumScanHist1.Text = hist.numOfScans;
+            NumCleanHist1.Text = hist.numOfClean;
         }
+
+        public History populate_History_Object()
+        {
+            History hist = new History();
+            string historyData = File.ReadAllText(@"C:\Users\Administrateur\source\repos\ALFABOOST\ALFABOOST\History.json");
+            Newtonsoft.Json.JsonConvert.PopulateObject(historyData, hist);
+            return hist;
+        }
+
+       
+
+
 
     }
 }

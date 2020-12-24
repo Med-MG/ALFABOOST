@@ -471,7 +471,7 @@
             <BeginStoryboard Storyboard="{StaticResource UpdateClick}"/>
         </EventTrigger>
     </Window.Triggers>
-    <Grid x:Name="LayoutRoot" >
+    <Grid x:Name="LayoutRoot" >             
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
             <ColumnDefinition Width="auto" />
@@ -613,7 +613,7 @@
                     <ImageBrush ImageSource="counterclockwise.png" Stretch="Uniform"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Button x:Name="History" Content="History       " HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Background="#00000000" Foreground="White" BorderBrush="{x:Null}" FontFamily="Montserrat Light"/>
+            <Button x:Name="History" Content="History       " HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Background="#00000000" Foreground="White" BorderBrush="{x:Null}" FontFamily="Montserrat Light" Click="Display_History" />
 
         </Grid>
         <Grid x:Name="Update_Item" Grid.ColumnSpan="7" Margin="0,189.678,787.907,322.748" Grid.Row="5" RenderTransformOrigin="0.5,0.5">
@@ -646,7 +646,7 @@
             <Button x:Name="Update" Content="Update    " HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Background="#00000000" Foreground="White" BorderBrush="{x:Null}" FontFamily="Montserrat Light"/>
 
         </Grid>
-        <Grid x:Name="DashboardLayout" Grid.ColumnSpan="2" Grid.Column="6" Margin="176,43.348,17.999,0" Grid.Row="5" d:IsHidden="True">
+        <Grid x:Name="DashboardLayout" Grid.ColumnSpan="2" Grid.Column="6" Margin="176,43.348,17.999,0" Grid.Row="5">
             <Grid x:Name="Scan_Card" Margin="0,0.997,530.001,173.003">
                 <Border  HorizontalAlignment="Left" Height="337" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10">
                     <Border.Effect>
@@ -861,7 +861,7 @@
                     <ImageBrush ImageSource="Cleaning Broom-01.png" Stretch="UniformToFill"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Grid x:Name="LastScanCard" Margin="0,165.418,511,251">
+            <Grid x:Name="LastScanCard" Margin="16,152.418,495,264">
                 <Rectangle Fill="#FF464A53" HorizontalAlignment="Left" Height="139" RadiusY="20.5" RadiusX="20.5" VerticalAlignment="Top" Width="236">
                     <Rectangle.Effect>
                         <DropShadowEffect Opacity="0.15" BlurRadius="16"/>
@@ -870,7 +870,7 @@
                 <TextBlock HorizontalAlignment="Left" Height="26.67" Margin="62,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" TextAlignment="Center" FontSize="22"><Run Text="L"/><Run Text="ast Scan "/></TextBlock>
                 <TextBlock x:Name="LastScanDate" HorizontalAlignment="Left" Height="26.67" Margin="19,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" TextAlignment="Center" FontSize="22" Text="Today" FontFamily="Montserrat Light" Foreground="#FF59BEDD"/>
             </Grid>
-            <Grid x:Name="LastCleanCard" Margin="267,165.418,244,251">
+            <Grid x:Name="LastCleanCard" Margin="283,152.418,228,264">
                 <Rectangle Fill="#FF464A53" HorizontalAlignment="Left" Height="139" RadiusY="20.5" RadiusX="20.5" VerticalAlignment="Top" Width="236">
                     <Rectangle.Effect>
                         <DropShadowEffect Opacity="0.15" BlurRadius="16"/>
@@ -882,65 +882,7 @@
 
 
         </Grid>
-        <Grid x:Name="ResultOfScan" Margin="177,95.348,429,136" Grid.Row="5" Grid.Column="6" Visibility="Hidden">
-            <Grid x:Name="WindowsResult" Margin="1,0,0,289">
-                <Rectangle x:Name="WinIcon" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
-                    <Rectangle.Fill>
-                        <ImageBrush ImageSource="windows.png" Stretch="Uniform"/>
-                    </Rectangle.Fill>
-                </Rectangle>
-                <TextBlock x:Name="Windows" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" Text="Windows" VerticalAlignment="Top" Width="147" FontSize="25"/>
-                <TextBlock x:Name="WinfilesSize" HorizontalAlignment="Left" Height="28" Margin="264,6,-36,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" FontSize="24" Foreground="#FFE8C073"><Run Text="0 GB"/></TextBlock>
-                <Rectangle x:Name="Saperator" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
-
-
-            </Grid>
-            <Grid x:Name="BrowsersResult" Margin="1,97,0,192">
-                <Rectangle x:Name="BrowIcon" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
-                    <Rectangle.Fill>
-                        <ImageBrush ImageSource="browser.png" Stretch="Uniform"/>
-                    </Rectangle.Fill>
-                </Rectangle>
-                <TextBlock x:Name="Browsers" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" Text="Browsers" VerticalAlignment="Top" Width="147" FontSize="25"/>
-                <TextBlock x:Name="BrowserfilesSize" HorizontalAlignment="Left" Height="28" Margin="264,6,-39,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" FontSize="24" Foreground="#FFE8C073"><Run Text="0 GB"/></TextBlock>
-                <Rectangle x:Name="Saperator1" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
-
-
-            </Grid>
-            <Grid x:Name="SoftwareResult" Margin="0,192,1,97">
-                <Rectangle x:Name="SoftIcon" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
-                    <Rectangle.Fill>
-                        <ImageBrush ImageSource="setting.png" Stretch="Uniform"/>
-                    </Rectangle.Fill>
-                </Rectangle>
-                <TextBlock x:Name="Softwares" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" FontSize="25"><Run Text="Software"/><Run Text="s"/></TextBlock>
-                <TextBlock x:Name="SoftwarefilesSize" HorizontalAlignment="Left" Height="28" Margin="264,6,-47,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" FontSize="24" Foreground="#FFE8C073"><Run Text="0 GB"/></TextBlock>
-                <Rectangle x:Name="Saperator2" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
-
-
-            </Grid>
-            <Grid x:Name="MultimediaResult" Margin="1,289,0,0">
-                <Rectangle x:Name="MultimIcon2" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
-                    <Rectangle.Fill>
-                        <ImageBrush ImageSource="video-player.png" Stretch="Uniform"/>
-                    </Rectangle.Fill>
-                </Rectangle>
-                <TextBlock x:Name="Multimedia" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" Text="Multimedia" VerticalAlignment="Top" Width="147" FontSize="25"/>
-                <TextBlock x:Name="MultimediafilesSize2" HorizontalAlignment="Left" Height="28" Margin="264,6,-53,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontSize="24" Foreground="#FFE8C073"><Run Text="0 GB"/></TextBlock>
-
-
-            </Grid>
-            <TextBlock x:Name="Rescan" HorizontalAlignment="Left" Height="20.462" Margin="441,-82.462,-166,0" TextWrapping="Wrap" Text="Rescan" VerticalAlignment="Top" Width="59" Foreground="#FF59BEDD" FontSize="16" FontFamily="Montserrat Light"/>
-            <Rectangle x:Name="CleanBtn" Fill="#FF349F92" HorizontalAlignment="Left" Height="43.348" Margin="534.75,-91.012,-345.25,0" VerticalAlignment="Top" Width="144.5" RadiusY="20.5" RadiusX="20.5">
-                <Rectangle.Effect>
-                    <DropShadowEffect Opacity="0.15" BlurRadius="16"/>
-                </Rectangle.Effect>
-            </Rectangle>
-            <TextBlock x:Name="ClEANTXT" HorizontalAlignment="Left" Height="20.5" Margin="564.75,-82.12,-318,0" TextWrapping="Wrap" Text="Clean" VerticalAlignment="Top" Width="87.25" FontSize="20" TextAlignment="Center" FontWeight="Medium"/>
-
-
-        </Grid>
-        <Grid x:Name="HistoryResult" Grid.Column="6" Margin="178,87.345,429,89" Grid.Row="5">
+        <Grid x:Name="HistoryResult" Grid.Column="6" Margin="178,87.345,429,89" Grid.Row="5" Visibility="Hidden">
             <Grid x:Name="ScanHist" Margin="13.74,0,-13.74,344.003">
                 <Rectangle x:Name="LastScanIcon1" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
                     <Rectangle.Fill>
@@ -1011,6 +953,64 @@
                 </TextBlock.RenderTransform>
             </TextBlock>
             <TextBlock HorizontalAlignment="Left" Height="19.586" Margin="13.74,-43.997,0,0" TextWrapping="Wrap" Text="Check out your app usage history" VerticalAlignment="Top" Width="239.26" FontFamily="Montserrat Light" FontSize="14"/>
+
+
+        </Grid>
+        <Grid x:Name="ResultOfScan" Margin="177,95.348,429,136" Grid.Row="5" Grid.Column="6" Visibility="Hidden">
+            <Grid x:Name="WindowsResult" Margin="1,0,0,289">
+                <Rectangle x:Name="WinIcon" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="windows.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="Windows" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" Text="Windows" VerticalAlignment="Top" Width="147" FontSize="25"/>
+                <TextBlock x:Name="WinfilesSize" HorizontalAlignment="Left" Height="28" Margin="264,6,-36,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" FontSize="24" Foreground="#FFE8C073"><Run Text="0 GB"/></TextBlock>
+                <Rectangle x:Name="Saperator" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
+
+
+            </Grid>
+            <Grid x:Name="BrowsersResult" Margin="1,97,0,192">
+                <Rectangle x:Name="BrowIcon" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="browser.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="Browsers" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" Text="Browsers" VerticalAlignment="Top" Width="147" FontSize="25"/>
+                <TextBlock x:Name="BrowserfilesSize" HorizontalAlignment="Left" Height="28" Margin="264,6,-39,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" FontSize="24" Foreground="#FFE8C073"><Run Text="0 GB"/></TextBlock>
+                <Rectangle x:Name="Saperator1" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
+
+
+            </Grid>
+            <Grid x:Name="SoftwareResult" Margin="0,192,1,97">
+                <Rectangle x:Name="SoftIcon" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="setting.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="Softwares" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" FontSize="25"><Run Text="Software"/><Run Text="s"/></TextBlock>
+                <TextBlock x:Name="SoftwarefilesSize" HorizontalAlignment="Left" Height="28" Margin="264,6,-47,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" FontSize="24" Foreground="#FFE8C073"><Run Text="0 GB"/></TextBlock>
+                <Rectangle x:Name="Saperator2" HorizontalAlignment="Left" Height="2" Stroke="#FF2E2E2E" StrokeThickness="0.25" VerticalAlignment="Top" Width="680" Margin="0,53,-347,-21"/>
+
+
+            </Grid>
+            <Grid x:Name="MultimediaResult" Margin="1,289,0,0">
+                <Rectangle x:Name="MultimIcon2" HorizontalAlignment="Left" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" Width="46.491">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="video-player.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="Multimedia" HorizontalAlignment="Left" Height="33" Margin="77,0,0,0" TextWrapping="Wrap" Text="Multimedia" VerticalAlignment="Top" Width="147" FontSize="25"/>
+                <TextBlock x:Name="MultimediafilesSize2" HorizontalAlignment="Left" Height="28" Margin="264,6,-53,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontSize="24" Foreground="#FFE8C073"><Run Text="0 GB"/></TextBlock>
+
+
+            </Grid>
+            <TextBlock x:Name="Rescan" HorizontalAlignment="Left" Height="20.462" Margin="441,-82.462,-166,0" TextWrapping="Wrap" Text="Rescan" VerticalAlignment="Top" Width="59" Foreground="#FF59BEDD" FontSize="16" FontFamily="Montserrat Light"/>
+            <Rectangle x:Name="CleanBtn" Fill="#FF349F92" HorizontalAlignment="Left" Height="43.348" Margin="534.75,-91.012,-345.25,0" VerticalAlignment="Top" Width="144.5" RadiusY="20.5" RadiusX="20.5">
+                <Rectangle.Effect>
+                    <DropShadowEffect Opacity="0.15" BlurRadius="16"/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <TextBlock x:Name="ClEANTXT" HorizontalAlignment="Left" Height="20.5" Margin="561.749,-83.499,-314.999,0" TextWrapping="Wrap" Text="Clean" VerticalAlignment="Top" Width="87.25" FontSize="20" TextAlignment="Center" FontWeight="Medium"/>
 
 
         </Grid>
