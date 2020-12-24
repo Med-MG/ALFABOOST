@@ -29,6 +29,13 @@ namespace ALFABOOST
         private static double FullSize = 0;
         List<double> DirTypesSizes = new List<double>();
         bool _ModeClean = false;
+        IDictionary<string, string> DirTypesPaths = new Dictionary<string, string>()
+            {
+                {"Windows", @"C:\Users\Administrateur\Downloads\Production\YoucodeC#\WPF\FilesToClean\del\windowsTemp" },
+                {"Browsers", @"C:\Users\Administrateur\Downloads\Production\YoucodeC#\WPF\FilesToClean\del\Browsers" },
+                {"Software", @"C:\Users\Administrateur\Downloads\Production\YoucodeC#\WPF\FilesToClean\del\Software" },
+                {"Multimedia", @"C:\Users\Administrateur\Downloads\Production\YoucodeC#\WPF\FilesToClean\del\Multimedia" },
+            };
 
         public MainWindow()
         {
@@ -58,11 +65,7 @@ namespace ALFABOOST
             this.DragMove();
         }
 
-        //private void StartScan(object sender, MouseButtonEventArgs e)
-        //{
-        //    Analyzer StartScan = new Analyzer();
-        //    ScanCircle.Value++;
-        //}
+        
 
 
         private void StartScan(object sender, RoutedEventArgs e)
@@ -77,7 +80,7 @@ namespace ALFABOOST
             worker.RunWorkerAsync();
         }
 
-      
+   
 
         void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -101,13 +104,7 @@ namespace ALFABOOST
              * Type : Path
              * 
              */
-            var DirTypesPaths = new Dictionary<string, string>()
-            {
-                {"Windows", @"C:\Users\Administrateur\Downloads\Production\YoucodeC#\WPF\FilesToClean\del\windowsTemp" },
-                {"Browsers", @"C:\Users\Administrateur\Downloads\Production\YoucodeC#\WPF\FilesToClean\del\Browsers" },
-                {"Software", @"C:\Users\Administrateur\Downloads\Production\YoucodeC#\WPF\FilesToClean\del\Software" },
-                {"Multimedia", @"C:\Users\Administrateur\Downloads\Production\YoucodeC#\WPF\FilesToClean\del\Multimedia" },
-            };
+
 
 
 
@@ -199,9 +196,6 @@ namespace ALFABOOST
          * 
          */
 
-        
-       
-
         private void Display_History(object sender, EventArgs e)
         {
 
@@ -223,10 +217,20 @@ namespace ALFABOOST
         }
 
 
+        /*
+         * Click Cleaner Button to toggle Layouts
+         * And dispalay Last Clean And Last Scan
+         */
 
         private void Cleaner_Click(object sender, RoutedEventArgs e)
         {
+            var hist = populate_History_Object();
+            LastScanDate.Text = hist.ToTimeSinceString(Convert.ToDateTime(hist.lastScan));
+            LastCleanDate.Text = hist.ToTimeSinceString(Convert.ToDateTime(hist.lastClean));
+
+
             Cleaner_Layout_Display();
+
         }
 
         void Cleaner_Layout_Display()
@@ -243,6 +247,61 @@ namespace ALFABOOST
                 Storyboard sbScan = this.FindResource("DisplaySCANL") as Storyboard;
                 sbScan.Begin();
             }
+        }
+
+
+
+
+        /*
+         * Cleaner Related Functions .
+         * Clean data, Display Progress bar
+         * Reset Software 
+         * 
+        */
+
+        private void StartClean(object sender, RoutedEventArgs e)
+        {
+            _ModeClean = false;
+
+            
+            ////Invoke Sotyboard Of cleaner
+            Storyboard sbCleanProg = this.FindResource("CleanerProgressStart") as Storyboard;
+            sbCleanProg.Begin();
+
+            Add_Current_Clean_Date();
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.WorkerReportsProgress = true;
+            worker.DoWork += Clean;
+            worker.ProgressChanged += Cleaner_ProgressChanged;
+
+            worker.RunWorkerAsync();
+        }
+
+        void Cleaner_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            CleanerProgress.Value = e.ProgressPercentage;
+           
+        }
+
+        void Clean(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                (sender as BackgroundWorker).ReportProgress(i);
+                Thread.Sleep(100);
+            }
+        }
+
+        void Add_Current_Clean_Date()
+        {
+            var hist = populate_History_Object();
+            DateTime now = DateTime.Now;
+            hist.lastClean = Convert.ToString(now);
+            hist.numOfScans = Convert.ToString(Convert.ToInt32(hist.numOfClean ) + 1);
+            hist.gained = Convert.ToString(Convert.ToDouble(hist.gained) + FullSize);
+            string newHistory = Newtonsoft.Json.JsonConvert.SerializeObject(hist);
+            File.WriteAllText(@"C:\Users\Administrateur\source\repos\ALFABOOST\ALFABOOST\History.json", newHistory);
+
         }
     }
 }

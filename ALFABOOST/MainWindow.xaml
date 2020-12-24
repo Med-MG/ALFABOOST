@@ -440,6 +440,30 @@
                 <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="CleanerProgressStart">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ScanLayout">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="HistoryResult">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ResultOfScan">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="CleaningProg">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CleaningProg">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ResultOfScan">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="Close_X">
@@ -672,7 +696,7 @@
             <Button x:Name="Update" Content="Update    " HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Background="#00000000" Foreground="White" BorderBrush="{x:Null}" FontFamily="Montserrat Light"/>
 
         </Grid>
-        <Grid x:Name="DashboardLayout" Grid.ColumnSpan="2" Grid.Column="6" Margin="176,43.348,17.999,0" Grid.Row="5">
+        <Grid x:Name="DashboardLayout" Grid.ColumnSpan="2" Grid.Column="6" Margin="176,43.348,17.999,0" Grid.Row="5" Visibility="Visible">
             <Grid x:Name="Scan_Card" Margin="0,0.997,530.001,173.003">
                 <Border  HorizontalAlignment="Left" Height="337" VerticalAlignment="Top" Width="236" Background="#FF464A53" CornerRadius="10">
                     <Border.Effect>
@@ -763,7 +787,7 @@
                         <DropShadowEffect Opacity="0.2" BlurRadius="12"/>
                     </Border.Effect>
                     <StackPanel Orientation="Horizontal" Margin="60,28,30,188">
-                        <hc:WaveProgressBar Value="60" FontSize="20" Margin="16,9.04,0,28.04" WaveThickness="4"  Background="#BF933D" BorderBrush="{x:Null}" Width="84">
+                        <hc:WaveProgressBar Value="45" FontSize="20" Margin="16,9.04,0,28.04" WaveThickness="4"  Background="#BF933D" BorderBrush="{x:Null}" Width="84">
                             <hc:WaveProgressBar.WaveFill>
                                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                                     <GradientStop Color="#E4B55D" Offset="0"/>
@@ -773,7 +797,12 @@
                         </hc:WaveProgressBar>
                     </StackPanel>
                 </Border>
-                <hc:CircleProgressBar Value="60" HorizontalAlignment="Left" Height="120" Margin="77.667,18,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Background="#FFD7A951" Foreground="#FFF3F1F1"/>
+                <Grid Margin="77.667,18,38.333,161.3">
+                    <hc:CircleProgressBar Name="junkPbar" Value="45" HorizontalAlignment="Left" ShowText="False" Height="120" VerticalAlignment="Top" Width="120" FontSize="14" Background="#FFD7A951" Foreground="#FFF3F1F1"/>
+                    <TextBlock Text="{Binding Value, ElementName=junkPbar, StringFormat=\{0:0\} GB}"  FontSize="14"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" Margin="39.2,51.6,26.534,89.3" Width="54.266" />
+                </Grid>
                 <TextBlock HorizontalAlignment="Left" Height="20.252" Margin="94.667,167.917,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" FontFamily="Montserrat" FontWeight="Light" FontSize="14"><Run Text="File "/><Run Text="Cle"/><Run Text="aner"/></TextBlock>
                 <Rectangle HorizontalAlignment="Left" Height="21.217" Margin="59.001,161.783,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.448,0.249">
                     <Rectangle.Fill>
@@ -1048,6 +1077,19 @@
                 </TextBlock.RenderTransform>
             </TextBlock>
             <TextBlock x:Name="ScanSubtext" HorizontalAlignment="Left" Height="19.586" Margin="14.74,-52,-65.334,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="384.594" FontFamily="Montserrat Light" FontSize="14"><Run Text="Scan"/><Run Text="ning Complete "/><Run x:Name="subSize" Foreground="#FF4ECDBD" FontWeight="Medium" FontFamily="Montserrat" Text="0.0 GB "/><Run Text="of junk found"/></TextBlock>
+
+
+        </Grid>
+        <Grid x:Name="CleaningProg" Grid.Column="6" Margin="333.5,43.348,217.094,126" Grid.Row="5" Visibility="Hidden">
+            <hc:CircleProgressBar x:Name="CleanerProgress" Value="40" HorizontalAlignment="Left" Height="279" Margin="54.5,106,0,0" VerticalAlignment="Top" Width="279"  ArcThickness = "30" BorderBrush="{x:Null}" FontSize="36" >
+                <hc:CircleProgressBar.Foreground>
+                    <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                        <GradientStop Color="#FFFFCA71" Offset="0"/>
+                        <GradientStop Color="#FFFF9603" Offset="1"/>
+                    </LinearGradientBrush>
+                </hc:CircleProgressBar.Foreground>
+            </hc:CircleProgressBar>
+            <TextBlock HorizontalAlignment="Left" Height="57.919" TextWrapping="Wrap" VerticalAlignment="Top" Width="389.406" FontSize="36" Foreground="#FFFFC566"><Run Text="Cleaning In progress"/><Run Text="..."/></TextBlock>
 
 
         </Grid>
