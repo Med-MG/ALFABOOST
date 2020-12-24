@@ -24,14 +24,21 @@ namespace ALFABOOST
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
+        private static double FullSize = 0;
+        List<double> DirTypesSizes = new List<double>();
+        bool _ModeClean = false;
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
 
-        private static double FullSize = 0;
-        List<double>  DirTypesSizes = new List<double>();
+        
+
+
 
         private void Close_Window(object sender, MouseButtonEventArgs e)
         {
@@ -60,6 +67,7 @@ namespace ALFABOOST
 
         private void StartScan(object sender, RoutedEventArgs e)
         {
+            _ModeClean = true;
             Add_Current_Scan_Date();
             BackgroundWorker worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
@@ -147,24 +155,20 @@ namespace ALFABOOST
 
 
 
-                //Invoke Sotyboard Of cleaner
+                ////Invoke Sotyboard Of cleaner
                 Storyboard sb = this.FindResource("Select_Cleaner") as Storyboard;
                 sb.Begin();
-                //Hide The cards visibility
-                LastScanCard.Visibility = Visibility.Hidden;
-                LastCleanCard.Visibility = Visibility.Hidden;
-                broom.Visibility = Visibility.Hidden;
 
-                //Display result UI
-                ResultOfScan.Visibility = Visibility.Visible;
+                Cleaner_Layout_Display();
 
                 //Display result
-                
+
                 WinfilesSize.Text = SizeCalculator.ToFileSize(DirTypesSizes[0]);
                 BrowserfilesSize.Text = SizeCalculator.ToFileSize(DirTypesSizes[1]);
                 SoftwarefilesSize.Text = SizeCalculator.ToFileSize(DirTypesSizes[2]);
                 MultimediafilesSize2.Text = SizeCalculator.ToFileSize(DirTypesSizes[3]);
-                JunkCleaner.Text = SizeCalculator.ToFileSize(DirTypesSizes[4]);
+                ResutFullSize.Text = SizeCalculator.ToFileSize(DirTypesSizes[4]);
+                subSize.Text = SizeCalculator.ToFileSize(DirTypesSizes[4]);
             });
 
            
@@ -218,9 +222,27 @@ namespace ALFABOOST
             return hist;
         }
 
-       
 
 
+        private void Cleaner_Click(object sender, RoutedEventArgs e)
+        {
+            Cleaner_Layout_Display();
+        }
 
+        void Cleaner_Layout_Display()
+        {
+            if (_ModeClean)
+            {
+                //Invoke Sotyboard Of cleaner
+                Storyboard sbClean = this.FindResource("DisplayClean") as Storyboard;
+                sbClean.Begin();
+            }
+            else if (!_ModeClean)
+            {
+                //Invoke Sotyboard Of cleaner
+                Storyboard sbScan = this.FindResource("DisplaySCANL") as Storyboard;
+                sbScan.Begin();
+            }
+        }
     }
 }
