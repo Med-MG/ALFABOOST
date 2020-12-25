@@ -569,7 +569,7 @@
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        <Border   HorizontalAlignment="Left" Height="650" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Width="192.093" Grid.RowSpan="7" Background="#FF464A53" CornerRadius="10,0,0,10" Grid.ColumnSpan="7" d:IsLocked="True">
+        <Border   HorizontalAlignment="Left" Height="650" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Width="192.093" Grid.RowSpan="7" Background="#FF464A53" CornerRadius="10,0,0,10" Grid.ColumnSpan="7">
             <TextBlock HorizontalAlignment="Left" Height="16" Margin="24,609,0,0" TextWrapping="Wrap" Text="Version 1.0" VerticalAlignment="Top" Width="93" FontFamily="Montserrat Light"/>
         </Border>
         <TextBlock HorizontalAlignment="Left" Height="47.944" Margin="22.794,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113.299" RenderTransformOrigin="0.905,0.926" Grid.Column="6" Grid.RowSpan="3" FontSize="16"><Run Text="ALFA"/><Run FontFamily="Montserrat Light" Text="BOOST"/><LineBreak/><Run Foreground="#FFA3A5AA" FontFamily="Montserrat Light" Text="DEFENDER"/></TextBlock>
@@ -579,7 +579,7 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Border Grid.Column="6"  HorizontalAlignment="Left" Height="650" Grid.RowSpan="7" VerticalAlignment="Top" Width="807.907" Background="#FF5F646F" CornerRadius="0,10,10,0" Margin="152.093,0,0,0" Grid.ColumnSpan="2" MouseDown="Drage_appRight" d:IsLocked="True" />
+        <Border Grid.Column="6"  HorizontalAlignment="Left" Height="650" Grid.RowSpan="7" VerticalAlignment="Top" Width="807.907" Background="#FF5F646F" CornerRadius="0,10,10,0" Margin="152.093,0,0,0" Grid.ColumnSpan="2" MouseDown="Drage_appRight" />
         <Grid x:Name="WindowOpt" Grid.Column="6" Margin="793.208,0,19.218,2.4" Grid.Row="2">
             <Ellipse x:Name="minimize" Fill="#FF464A53" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" RenderTransformOrigin="34.409,1.545">
                 <Ellipse.Effect>

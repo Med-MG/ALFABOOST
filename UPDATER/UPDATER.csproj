@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CLConfiguration, Version=0.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ChaseLabs.Configuration.0.0.4\lib\netstandard2.0\CLConfiguration.dll</HintPath>
+    </Reference>
+    <Reference Include="CLUpdate, Version=0.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ChaseLabs.Updater.0.1.6\lib\netstandard2.0\CLUpdate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -86,6 +92,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Design\projectGuides.guides" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,6 +101,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Logo-01.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
