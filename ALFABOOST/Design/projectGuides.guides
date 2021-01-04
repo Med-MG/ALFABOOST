@@ -17,12 +17,13 @@
             <Guide Alignment="Top" Position="217" />
             <Guide Alignment="Top" Position="304" />
             <Guide Alignment="Top" Position="390" />
-            <Guide Alignment="Top" Position="354" />
+            <Guide Alignment="Top" Position="442" />
             <Guide Alignment="Top" Position="333" />
             <Guide Alignment="Top" Position="420" />
-            <Guide Alignment="Top" Position="475" />
+            <Guide Alignment="Top" Position="480" />
             <Guide Alignment="Top" Position="504" />
             <Guide Alignment="Left" Position="192" />
+            <Guide Alignment="Left" Position="598" />
           </Guides>
         </GuideModel>
       </GuideModels>

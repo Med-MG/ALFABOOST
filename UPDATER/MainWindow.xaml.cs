@@ -23,6 +23,8 @@ namespace UPDATER
     {
 
         Dispatcher dis = Dispatcher.CurrentDispatcher;
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -42,6 +44,17 @@ namespace UPDATER
             this.DragMove();
         }
 
+        //public bool UpdateCheck()
+        //{
+        //    UpdateManager upManager = new UpdateManager();
+        //    if (upManager.CheckForUpdate(version_key, local_version_path, remote_version_url))
+        //    {
+        //        return true;
+        //    } 
+        //    return false;
+           
+        //}
+
         void Update()
         {
             Task.Run(() =>
@@ -53,7 +66,7 @@ namespace UPDATER
 
               }, DispatcherPriority.Normal);
 
-               
+
                string url = "https://www.dropbox.com/s/r1jy5d3rqw2n0nz/ALFABOOST.zip?dl=1";
                string version_key = "application: ";
                string remote_version_url = "https://www.dropbox.com/s/r1jy5d3rqw2n0nz/ALFABOOST.zip?dl=1";

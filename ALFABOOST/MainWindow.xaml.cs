@@ -16,7 +16,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using UPDATER;
 namespace ALFABOOST
 {
     /// <summary>
@@ -29,6 +29,7 @@ namespace ALFABOOST
         private static double FullSize = 0;
         List<double> DirTypesSizes = new List<double>();
         bool _ModeClean = false;
+        UpdateChecker updates = new UpdateChecker();
         IDictionary<string, string> DirTypesPaths = new Dictionary<string, string>()
             {
                 {"Windows", @"C:\Users\Administrateur\Downloads\Production\YoucodeC#\WPF\FilesToClean\del\windowsTemp" },
@@ -59,7 +60,6 @@ namespace ALFABOOST
         {
             this.WindowState = WindowState.Maximized;
         }
-
         private void Drage_appRight(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -219,7 +219,7 @@ namespace ALFABOOST
         public History populate_History_Object()
         {
             History hist = new History();
-            string historyData = File.ReadAllText(@"C:\Users\Administrateur\source\repos\ALFABOOST\ALFABOOST\History.json");
+            string historyData = File.ReadAllText(@".\history.json");
             Newtonsoft.Json.JsonConvert.PopulateObject(historyData, hist);
             return hist;
         }
@@ -347,9 +347,35 @@ namespace ALFABOOST
             hist.numOfClean = Convert.ToString(Convert.ToInt32(hist.numOfClean ) + 1);
             hist.gained = Convert.ToString(SizeCalculator.ToFileSize(FullSize));
             string newHistory = Newtonsoft.Json.JsonConvert.SerializeObject(hist);
-            File.WriteAllText(@"C:\Users\Administrateur\source\repos\ALFABOOST\ALFABOOST\History.json", newHistory);
+            File.WriteAllText(@".\History.json", newHistory);
 
         }
 
+
+        //Check for updates
+
+     
+
+        private void UpdatesChecker(object sender, EventArgs e)
+        {
+            
+
+            if( updates.UpdateCheck())
+            {
+                updateNum.Text = "1";
+                updateTxt.Text = "New Update Found";
+                UpdateBtn.Visibility = Visibility.Visible ;
+            } else
+            {
+                updateNum.Text = "0";
+            }
+            
+        }
+
+        private void UpdateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            updates.LaunchUpdater();
+            this.Close();
+        }
     }
 }

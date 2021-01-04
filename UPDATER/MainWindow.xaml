@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UPDATER"
         mc:Ignorable="d"
-        Title="MainWindow" Height="448.218" Width="644.753" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+        Title="MainWindow" Height="452.218" Width="641.753" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" Visibility="Visible" Foreground="{x:Null}">
     <Grid x:Name="LayoutRoot">
-        <Rectangle Fill="#FF5F646F" HorizontalAlignment="Left" Height="450" Stroke="Black" VerticalAlignment="Top" Width="644.753" RadiusY="7.5" RadiusX="7.5" Margin="0,0,0,-1.782" MouseDown="Drage_appRight">
+        <Rectangle Fill="#FF5F646F" HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="644.753" RadiusY="7.5" RadiusX="7.5" Margin="0,0,0,-1.782" MouseDown="Drage_appRight">
             <Rectangle.Effect>
                 <DropShadowEffect BlurRadius="16" Opacity="0.16"/>
             </Rectangle.Effect>
@@ -18,7 +18,7 @@
                 <ImageBrush ImageSource="Logo-01.png" Stretch="Uniform"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Border BorderThickness="1" HorizontalAlignment="Left" Height="89.5" Margin="150.5,217.75,0,0" VerticalAlignment="Top" Width="343" Background="#FF464A53" CornerRadius="50" >
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="89.5" Margin="150.5,217.75,0,0" VerticalAlignment="Top" Width="343" Background="#FF464A53" CornerRadius="10" >
             <Border.Effect>
                 <DropShadowEffect ShadowDepth="6" BlurRadius="50" Opacity="0.15"/>
             </Border.Effect>
@@ -35,7 +35,7 @@
         </Ellipse>
         <Rectangle x:Name="rectangle1" Fill="#FF464A53" HorizontalAlignment="Left" Height="7.225" Margin="572.934,22.073,0,0" VerticalAlignment="Top" Width="8.265" Stroke="White" StrokeThickness="0.5" MouseDown="max_window" />
         <Rectangle x:Name="rectangle" Fill="#FF464A53" HorizontalAlignment="Left" Height="7.225" Margin="569.698,24.99,0,0" VerticalAlignment="Top" Width="8.265" Stroke="White" StrokeThickness="0.5"  MouseDown="max_window" />
-        <TextBlock x:Name="Minise" HorizontalAlignment="Right" Width="29" Margin="0,0,103.753,405.018" RenderTransformOrigin="15.265,3.867" FontFamily="Montserrat Light" TextAlignment="Center"  MouseDown="Minimize_Window" Foreground="#FFF9F9F9" >
+        <TextBlock x:Name="Minise" HorizontalAlignment="Right" Width="29" Margin="0,0,100.418,405.018" RenderTransformOrigin="15.265,3.867" FontFamily="Montserrat Light" TextAlignment="Center"  MouseDown="Minimize_Window" Foreground="#FFF9F9F9" >
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -44,7 +44,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform><Run/><LineBreak/><Run Text="_"/><LineBreak/><Run/></TextBlock>
-        <Button x:Name="ButtonT" Content="ALFABOOST IS UP TO DATE&#xD;&#xA;" HorizontalAlignment="Left" Height="82.583" Margin="139.833,231.083,0,0" VerticalAlignment="Top" Width="362.167" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Montserrat"/>
+        <Button x:Name="ButtonT" Content="ALFABOOST IS UP TO DATE&#xD;&#xA;" HorizontalAlignment="Left" Height="33.803" Margin="123.167,246.937,0,0" VerticalAlignment="Top" Width="396.881" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Montserrat"/>
 
     </Grid>
 </Window>
